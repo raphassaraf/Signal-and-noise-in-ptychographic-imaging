@@ -1,4 +1,4 @@
-from tools_rec import simulate_object
+from tools.tools_rec import simulate_object
 
 
 PATH = '64_64_img.jpg'
