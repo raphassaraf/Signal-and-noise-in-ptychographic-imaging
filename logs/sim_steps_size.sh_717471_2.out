@@ -1,0 +1,5 @@
+Running simulation for steps_size=2 and n_fluences=1
+Steps size: 2
+Tensors initialization on device cuda
+Multiprobe = None
+Simulation for steps_size=2 and n_fluences=1 completed!

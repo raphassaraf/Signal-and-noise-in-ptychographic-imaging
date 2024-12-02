@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -p gpu-week 
 #SBATCH --gres=gpu:1
-#SBATCH --array=1-11
+#SBATCH --array=1-30
 #SBATCH --output=logs/%x_%A_%a.out  # Output log file (%x: job name, %A: job ID, %a: array task ID)
 #SBATCH --error=logs/%x_%A_%a.err   # Error log file
 
@@ -10,10 +10,11 @@ source /opt/psi/TOMCAT/anaconda/2023-06-19/conda/etc/profile.d/conda.sh
 conda activate ptycho
 
 n_fluences=20
-principal_mode_weight=$SLURM_ARRAY_TASK_ID
+steps_size=$SLURM_ARRAY_TASK_ID
 
-echo "Running simulation for principal_mode_weight=$principal_mode_weight and n_fluences=$n_fluences"
+echo "Running simulation for steps_size=$steps_size and n_fluences=$n_fluences"
 
-python -u sim_grad.py $principal_mode_weight $n_fluences
+python -u sim_steps_size.py $steps_size $n_fluences
 
-echo "Simulation for principal_mode_weight=$principal_mode_weight and n_fluences=$n_fluences completed!"
+echo "Simulation for steps_size=$steps_size and n_fluences=$n_fluences completed!"
+

@@ -4,7 +4,7 @@ import torch as t
 from rec_scripts import reconstruct_flu
 from utils import save_output
 
-flu_i, flu_f, flu_n = -1, 6, 60
+flu_i, flu_f, flu_n = -1, 6, 40
 fluences = np.logspace(flu_i, flu_f, flu_n)
 
 print(
