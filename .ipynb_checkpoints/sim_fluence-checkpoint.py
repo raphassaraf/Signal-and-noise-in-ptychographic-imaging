@@ -1,32 +1,56 @@
+import argparse
+import itertools
 import numpy as np
 import torch as t
 
-from rec_scripts import reconstruct_flu
-from utils import save_output
+from tools.rec_scripts import reconstruct_flu
+from tools.utils import *
 
-flu_i, flu_f, flu_n = -1, 6, 40
-fluences = np.logspace(flu_i, flu_f, flu_n)
 
-print(
-    f'''Begin simulations with:
-        fluences: logspace({flu_i, flu_f, flu_n})'''
-)
+def main():
 
-rec_dict = {
-    'object_mse': None,
-    'loss_mse': None,
-    'object_mse_nll': None,
-    'loss_mse_nll': None
-}
+    parser = argparse.ArgumentParser(
+        prog='steps_size_reconstruction',
+        description=(
+            'Run a reconstruction sweep over multiple fluences.'
+        )
+    )
+    parser.add_argument(
+        'n_fluences',
+        type=int,
+        help='The number of fluences between 1e-1 and 1e6 to simulate.'
+    )
+    args = parser.parse_args()
 
-### MSE ###
-rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
-    fluences, 'MSE'
-)
-save_output(rec_dict, 'rec_fluence.pkl')
+    n_flu = args.n_fluences
+    flu_i, flu_f = -1, 6
+    fluences = np.logspace(flu_i, flu_f, n_flu)
+    
+    rec_dict = {
+        'object_mse': None,
+        'loss_mse': None,
+        'object_mse_nll': None,
+        'loss_mse_nll': None
+    }
+    
+    ### MSE ###
+    rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
+        fluences,
+        'MSE',
+    )
+    save_output(rec_dict, f'outputs/steps_size/rec_fluence.pkl')
+        
+    ### MSE --> NLL ###
+    rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
+        fluences,
+        'MSE',
+        'PoissonNLL',
+    )
+            
+    save_output(rec_dict, f'outputs/steps_size/rec_fluence.pkl')
 
-### MSE --> NLL ###
-rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
-    fluences, 'MSE', 'PoissonNLL'
-)
-save_output(rec_dict, 'rec_fluence.pkl')
+
+if __name__ == '__main__':
+
+    main()
+

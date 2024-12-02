@@ -1,0 +1,53 @@
+Running simulation for steps_size=1 and n_fluences=20
+Steps size: 1
+Tensors initialization on device cuda
+Multiprobe = None
+
+('MSE', None) RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.09999999999999999 photons/pixel
+Epoch 0: loss = 0.00022143735259305686
+Epoch 1: loss = 0.00022143735259305686
+Epoch 2: loss = 0.00022143735259305686
+Epoch 3: loss = 0.00022143735259305686
+Epoch 4: loss = 0.00022143735259305686
+Epoch 5: loss = 0.00022143735259305686
+Early stopping at epoch 5 with loss 0.00022143735259305686
+Reconstruction for fluence = 0.23357214690901223 photons/pixel
+Epoch 0: loss = 0.0005164690082892776
+Epoch 1: loss = 0.0005164690082892776
+Epoch 2: loss = 0.0005164690082892776
+Epoch 3: loss = 0.0005164690082892776
+Epoch 4: loss = 0.0005164690082892776
+Epoch 5: loss = 0.0005164690082892776
+Early stopping at epoch 5 with loss 0.0005164690082892776
+Reconstruction for fluence = 0.5455594781168519 photons/pixel
+Epoch 0: loss = 0.0012268921127542853
+Epoch 1: loss = 0.0012268921127542853
+Epoch 2: loss = 0.0012268921127542853
+Epoch 3: loss = 0.0012268921127542853
+Epoch 4: loss = 0.0012268921127542853
+Epoch 5: loss = 0.0012268921127542853
+Early stopping at epoch 5 with loss 0.0012268921127542853
+Reconstruction for fluence = 1.2742749857031335 photons/pixel
+Epoch 0: loss = 0.002891706069931388
+Epoch 1: loss = 0.002891706069931388
+Epoch 2: loss = 0.002891706069931388
+Epoch 3: loss = 0.002891706069931388
+Epoch 4: loss = 0.002891706069931388
+Epoch 5: loss = 0.002891706069931388
+Early stopping at epoch 5 with loss 0.002891706069931388
+Reconstruction for fluence = 2.976351441631318 photons/pixel
+Epoch 0: loss = 0.0069880555383861065
+Epoch 1: loss = 0.00698800990357995
+Epoch 2: loss = 0.0069879633374512196
+Epoch 3: loss = 0.006987917702645063
+Epoch 4: loss = 0.00698787160217762
+Epoch 5: loss = 0.0069878255017101765
+Early stopping at epoch 5 with loss 0.0069880555383861065
+Reconstruction for fluence = 6.9519279617756045 photons/pixel
+Epoch 0: loss = 0.017735056579113007
+Epoch 1: loss = 0.01773369126021862
+Epoch 2: loss = 0.017732325941324234
+Epoch 3: loss = 0.017730964347720146
+Epoch 4: loss = 0.01772960275411606

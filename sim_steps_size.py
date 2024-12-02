@@ -50,7 +50,7 @@ def main():
         'MSE',
         steps_size=steps_size
     )
-    save_output(rec_dict, f'outputs/steps_size/rec_grad_{steps_size}.pkl')
+    save_output(rec_dict, f'outputs/steps_size/rec_steps_{steps_size}.pkl')
         
     ### MSE --> NLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
