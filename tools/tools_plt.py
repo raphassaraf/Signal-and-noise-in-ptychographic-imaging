@@ -145,7 +145,7 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
 
     if idx_param is None: idx_param = np.arange(0, len(param_keys))
 
-    f, ax = plt.subplots(2, 2, figsize=(8, 8))
+    f, ax = plt.subplots(2, 2, figsize=(8, 6))
     colormap = plt.cm.brg# You can use any colormap here
     colors = np.array([colormap(i) for i in np.linspace(1, 0, idx_param.shape[0])])
 
@@ -165,7 +165,7 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
     ax = ax.flatten()
     for a in ax: a.grid(),
     handles, labels = ax[0].get_legend_handles_labels()
-    f.legend(handles, labels, loc='upper center', ncol=1, bbox_to_anchor=[-0.09, 0.96])
+    f.legend(handles, labels, loc='upper center', ncol=1, bbox_to_anchor=[-0.07, 0.96])
             
     f.tight_layout()
     
