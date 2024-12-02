@@ -91,8 +91,8 @@ def plot_metric_flu(fluences, mse_dict, ssim_dict):
         ax[1].scatter(fluences, 1 - ssim, s=5, label=l)
         
     for a in ax: a.grid(), a.set_xlabel('fluence'), a.legend(), a.set_xscale('log'), a.set_yscale('log')
-    ax[0].set_title('Mean squared error')
-    ax[1].set_title('Structural similarity index measure (modulus)')
+    ax[0].set_ylabel('mse')
+    ax[1].set_ylabel('1-ssim')
     f.tight_layout()
 
     return f
@@ -154,8 +154,8 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
             param_keys[idx_param], mse_array[idx_param],
             ssim_array[idx_param], colors
         ):
-            ax[0, i].loglog(fluences, mse, marker='o', label=f'{s} {unit}', c=clr)
-            ax[1, i].loglog(fluences, 1 - ssim, marker='o', c = clr)
+            ax[0, i].loglog(fluences, mse, marker='o', label=f'{s} {unit}', c=clr, markersize=4)
+            ax[1, i].loglog(fluences, 1 - ssim, marker='o', c = clr, markersize=4)
 
     ax[0, 0].set_title('MSE reconstruction')
     ax[0, 1].set_title('MSE - PNLL reconstruction')
