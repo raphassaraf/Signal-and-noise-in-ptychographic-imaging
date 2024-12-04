@@ -53,7 +53,7 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, steps_size=1, multipr
 
     translations = set_scanning_grid(
         coord = (OBJ_SIZE, OBJ_SIZE),
-        n_steps = OBJ_SIZE,
+        n_steps = np.ceil(OBJ_SIZE/steps_size),
         steps_size = steps_size,
         add_noise = False
     ).to(DEVICE)
