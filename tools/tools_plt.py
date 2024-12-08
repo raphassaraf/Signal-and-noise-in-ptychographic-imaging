@@ -66,7 +66,7 @@ def plot_results_flu(
     obj_dict = {key: rec_obj_dict[key] for key in fluences[indices]}
     loss_dict = {key: rec_loss_dict[key] for key in fluences[indices]}
     
-    f, ax = plt.subplots(3, len(indices), figsize=(20, 10))
+    f, ax = plt.subplots(3, len(indices), figsize=(4*len(indices), 9))
     for i, ((fluence, img), loss) in enumerate(zip(obj_dict.items(), loss_dict.values())):
         plot_amplitude(img, ax[0, i]) # Reconstructed object amplitude.
         plot_phase(img, ax[1, i]) # Reconstructed object phase.
@@ -82,7 +82,7 @@ def plot_results_flu(
 
 
 def plot_metric_flu(fluences, mse_dict, ssim_dict):
-    f, ax = plt.subplots(1, 2, figsize=(8, 4))
+    f, ax = plt.subplots(1, 2, figsize=(8, 3))
 
     legends = ['MSE', 'MSE - PNLL']
 
@@ -112,7 +112,7 @@ def plot_results_param_flu(result_dict, plot_fct, idx_param, idx_flu, param):
         p: {flu: result_dict[p][flu] for flu in fluences} for p in params
     }
 
-    figsize = (4*fluences.shape[0], 4.5*params.shape[0])
+    figsize = (4*fluences.shape[0], 3*params.shape[0])
     f, ax = plt.subplots(len(params), len(fluences), figsize=figsize)
     
     if len(params) == 1: ax = np.expand_dims(ax, axis=0)
@@ -146,7 +146,7 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
     if idx_param is None: idx_param = np.arange(0, len(param_keys))
 
     f, ax = plt.subplots(2, 2, figsize=(8, 6))
-    colormap = plt.cm.brg# You can use any colormap here
+    colormap = plt.cm.brg
     colors = np.array([colormap(i) for i in np.linspace(1, 0, idx_param.shape[0])])
 
     for i, (mse_array, ssim_array) in enumerate(zip(mse_dict.values(), ssim_dict.values())):
@@ -154,13 +154,13 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
             param_keys[idx_param], mse_array[idx_param],
             ssim_array[idx_param], colors
         ):
-            ax[0, i].loglog(fluences, mse, marker='o', label=f'{s} {unit}', c=clr, markersize=4)
-            ax[1, i].loglog(fluences, 1 - ssim, marker='o', c = clr, markersize=4)
+            ax[0, i].loglog(fluences, mse, label=f'{s} {unit}', c=clr, linewidth=.5)
+            ax[1, i].loglog(fluences, 1 - ssim, c = clr, linewidth=.5)
 
     ax[0, 0].set_title('MSE reconstruction')
     ax[0, 1].set_title('MSE - PNLL reconstruction')
     ax[0, 0].set_ylabel('mse')
-    ax[1, 0].set_ylabel('ssim (modulus)')
+    ax[1, 0].set_ylabel('1-ssim')
     ax[1, 0].set_xlabel('fluence'), ax[1, 1].set_xlabel('fluence')
     ax = ax.flatten()
     for a in ax: a.grid(),
