@@ -219,6 +219,14 @@ def get_diffractions_fluence(probe, obj, translations, fluence, noise=None):
         diff_patterns = t.poisson(diff_patterns)
     
     return diff_patterns, output_probe
+
+def mse_amplitude_loss(sim_intensity, measured_intensity):
+    '''
+    Corrected MSE loss
+    '''
+    loss = t.sum((t.sqrt(sim_intensity) - t.sqrt(measured_intensity))**2)
+    
+    return loss
     
     
 def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
@@ -229,7 +237,7 @@ def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
     '''
 
     if loss_f == 'PoissonNLL': loss_fct = nn.PoissonNLLLoss(log_input=False)
-    elif loss_f == 'MSE': loss_fct = nn.MSELoss()
+    elif loss_f == 'MSE': loss_fct = mse_amplitude_loss
         
     obj_guess.requires_grad = True
     optimizer = LBFGS([obj_guess], lr=lr)
