@@ -224,7 +224,8 @@ def mse_amplitude_loss(sim_intensity, measured_intensity):
     '''
     Corrected MSE loss
     '''
-    loss = t.sum((t.sqrt(sim_intensity) - t.sqrt(measured_intensity))**2)
+    eps = 1e-10 # term to prevent derivative from blowing up during optimization
+    loss = t.sum((t.sqrt(sim_intensity+eps) - t.sqrt(measured_intensity+eps))**2)
     
     return loss
     
