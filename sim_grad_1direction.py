@@ -10,13 +10,13 @@ from utils import *
 def main():
 
     parser = argparse.ArgumentParser(
-        prog='sim_grad',
+        prog='sim_grad_1direction',
         description=(
             'Run a reconstruction sweep over the following multiprobe system: '
             '[w_1*P, w_2*Px, w_3*Py]. Px and Py are the x and y directional '
             'derivatives of P, and the weights w_i vary from [100, 0, 0] to '
-            '[0, 50, 50] by decreasing w_1 by 10, and increasing w_2 and w_3 '
-            'by 5 at each iteration. For each weight configuration, sweep over '
+            '[50, 50, 0] by decreasing w_1 by 10, increasing w_2 by 10 and keeping '
+            'w_3 at 0 at each iteration. For each weight configuration, sweep over '
             'different fluences.'
         )
     )
@@ -25,8 +25,6 @@ def main():
         type=int,
         help=(
             'The weight attributed to the principal mode P'
-            '(the x and y derivatives will have equally distributed weights '
-            'w_2 and w_3, such that the total distributed weights equal to 100).'
         )
     )
     parser.add_argument(
@@ -38,8 +36,8 @@ def main():
 
     principal_mode_weight_list = np.arange(0, 101, 10)
     principal_mode_weight = principal_mode_weight_list[-args.principal_mode_weight]
-    grad_modes_weight = (100 - principal_mode_weight) / 2
-    weights = np.array([principal_mode_weight, grad_modes_weight, grad_modes_weight])
+    secondary_mode_weight = principal_mode_weight_list[args.principal_mode_weight-1]
+    weights = np.array([principal_mode_weight, secondary_mode_weight, 0])
     pkl_suf = np.array2string(weights, separator=',').replace(' ', '').replace('.', '')
     print(f'Weights: {weights}')
 
@@ -61,7 +59,7 @@ def main():
         multiprobe='grad',
         grad_weights=weights
     )
-    save_output(rec_dict, f'outputs/grad/rec_grad_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
         
     ### MSE --> NLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
@@ -72,7 +70,7 @@ def main():
         grad_weights=weights
     )
             
-    save_output(rec_dict, f'outputs/grad/rec_grad_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
 
 
 if __name__ == '__main__':
