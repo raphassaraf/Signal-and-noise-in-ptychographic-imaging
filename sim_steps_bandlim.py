@@ -51,6 +51,7 @@ def main():
         rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
             fluences,
             'MSE',
+            probe_r_ratio=r_ratio,
             steps_size=steps_size,
             multiprobe='band_lim',
             n_probes=1
@@ -62,6 +63,7 @@ def main():
             fluences,
             'MSE',
             'PoissonNLL',
+            probe_r_ratio=r_ratio,
             steps_size=steps_size,
             multiprobe='band_lim',
             n_probes=1
