@@ -45,27 +45,29 @@ def main():
         'loss_mse_nll': None
     }
     
-    ### MSE ###
-    rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
-        fluences,
-        'MSE',
-        steps_size=steps_size,
-        multiprobe='band_lim',
-        n_probes=1
-    )
-    save_output(rec_dict, f'outputs/steps_bandlim/rec_steps_bandlim_{steps_size}.pkl')
-        
-    ### MSE --> NLL ###
-    rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
-        fluences,
-        'MSE',
-        'PoissonNLL',
-        steps_size=steps_size,
-        multiprobe='band_lim',
-        n_probes=1
-    )
+    # Sweep over band-limited random probe size
+    for r_ratio in [3, 4, 6, 7, 8, 9, 10]:
+        ### MSE ###
+        rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
+            fluences,
+            'MSE',
+            steps_size=steps_size,
+            multiprobe='band_lim',
+            n_probes=1
+        )
+        save_output(rec_dict, f'outputs/steps_bandlim{r_ratio}/rec_steps_bandlim{r_ratio}_{steps_size}.pkl')
             
-    save_output(rec_dict, f'outputs/steps_bandlim/rec_steps_bandlim_{steps_size}.pkl')
+        ### MSE --> NLL ###
+        rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
+            fluences,
+            'MSE',
+            'PoissonNLL',
+            steps_size=steps_size,
+            multiprobe='band_lim',
+            n_probes=1
+        )
+                
+        save_output(rec_dict, f'outputs/steps_bandlim{r_ratio}/rec_steps_bandlim{r_ratio}_{steps_size}.pkl')
 
 
 if __name__ == '__main__':
