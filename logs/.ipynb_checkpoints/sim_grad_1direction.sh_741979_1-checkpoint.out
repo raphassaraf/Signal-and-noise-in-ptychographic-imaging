@@ -1,0 +1,4 @@
+Running simulation for principal_mode_weight=1 and n_fluences=20
+Weights: [100   0   0]
+Tensors initialization on device cuda
+Multiprobe = grad

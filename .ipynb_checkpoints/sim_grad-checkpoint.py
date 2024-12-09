@@ -3,8 +3,8 @@ import itertools
 import numpy as np
 import torch as t
 
-from rec_scripts import reconstruct_flu
-from utils import *
+from tools.rec_scripts import reconstruct_flu
+from tools.utils import *
 
 
 def main():
@@ -36,8 +36,6 @@ def main():
     )
     args = parser.parse_args()
 
-    multiprobe = 'grad'
-
     principal_mode_weight_list = np.arange(0, 101, 10)
     principal_mode_weight = principal_mode_weight_list[-args.principal_mode_weight]
     grad_modes_weight = (100 - principal_mode_weight) / 2
@@ -63,7 +61,7 @@ def main():
         multiprobe='grad',
         grad_weights=weights
     )
-    save_output(rec_dict, f'rec_grad_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad/rec_grad_{pkl_suf}.pkl')
         
     ### MSE --> NLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
@@ -74,7 +72,7 @@ def main():
         grad_weights=weights
     )
             
-    save_output(rec_dict, f'rec_grad_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad/rec_grad_{pkl_suf}.pkl')
 
 
 if __name__ == '__main__':

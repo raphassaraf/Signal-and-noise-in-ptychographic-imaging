@@ -3,8 +3,8 @@ import itertools
 import numpy as np
 import torch as t
 
-from rec_scripts import reconstruct_flu
-from utils import *
+from tools.rec_scripts import reconstruct_flu
+from tools.utils import *
 
 
 def main():
