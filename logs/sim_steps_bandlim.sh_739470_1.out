@@ -657,3 +657,20 @@ Epoch 2: loss = 2297.34228515625
 Epoch 3: loss = 2204.091796875
 Epoch 4: loss = 2190.101318359375
 Epoch 5: loss = 2187.4609375
+Epoch 6: loss = 2186.9130859375
+Epoch 7: loss = 2186.716064453125
+Epoch 8: loss = 2186.64453125
+Epoch 9: loss = 2186.6201171875
+Epoch 10: loss = 2186.616455078125
+Epoch 11: loss = 2186.615234375
+Epoch 12: loss = 2186.61474609375
+Epoch 13: loss = 2186.61474609375
+Epoch 14: loss = 2186.61376953125
+Epoch 0: loss = -19927.27734375
+Epoch 1: loss = -19927.27734375
+Epoch 2: loss = -19927.27734375
+Epoch 3: loss = -19927.27734375
+Epoch 4: loss = -19927.27734375
+Epoch 5: loss = -19927.27734375
+Early stopping at epoch 5 with loss -19927.27734375
+Simulation for steps_size=1 and n_fluences=20 completed!
