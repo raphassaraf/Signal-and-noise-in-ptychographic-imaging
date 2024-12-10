@@ -1,0 +1,547 @@
+Running simulation for steps_size=10 and n_fluences=20
+Steps size: 10
+Tensors initialization on device cuda
+Multiprobe = band_lim
+torch.Size([1, 64, 64])
+
+('MSE', None) RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.09999999999999999 photons/pixel
+Epoch 0: loss = 0.03259080648422241
+Epoch 1: loss = 0.03257538750767708
+Epoch 2: loss = 0.03255995735526085
+Epoch 3: loss = 0.032544538378715515
+Epoch 4: loss = 0.03252913057804108
+Epoch 5: loss = 0.03251374140381813
+Early stopping at epoch 5 with loss 0.03259080648422241
+Reconstruction for fluence = 0.23357214690901223 photons/pixel
+Epoch 0: loss = 0.05622261390089989
+Epoch 1: loss = 0.02802850306034088
+Epoch 2: loss = 0.025535481050610542
+Epoch 3: loss = 0.025535481050610542
+Epoch 4: loss = 0.025535481050610542
+Epoch 5: loss = 0.025535481050610542
+Epoch 6: loss = 0.025535481050610542
+Epoch 7: loss = 0.025535481050610542
+Early stopping at epoch 7 with loss 0.025535481050610542
+Reconstruction for fluence = 0.5455594781168519 photons/pixel
+Epoch 0: loss = 0.08800342679023743
+Epoch 1: loss = 0.03905215859413147
+Epoch 2: loss = 0.03905177861452103
+Epoch 3: loss = 0.03905177488923073
+Epoch 4: loss = 0.03905177488923073
+Epoch 5: loss = 0.03905177488923073
+Epoch 6: loss = 0.03905177488923073
+Early stopping at epoch 6 with loss 0.03905215859413147
+Reconstruction for fluence = 1.2742749857031335 photons/pixel
+Epoch 0: loss = 0.13463567197322845
+Epoch 1: loss = 0.05709223821759224
+Epoch 2: loss = 0.049194082617759705
+Epoch 3: loss = 0.04919395595788956
+Epoch 4: loss = 0.04919394105672836
+Epoch 5: loss = 0.049193937331438065
+Epoch 6: loss = 0.049193937331438065
+Epoch 7: loss = 0.049193937331438065
+Early stopping at epoch 7 with loss 0.049194082617759705
+Reconstruction for fluence = 2.976351441631318 photons/pixel
+Epoch 0: loss = 0.2294730246067047
+Epoch 1: loss = 0.07279589772224426
+Epoch 2: loss = 0.057962268590927124
+Epoch 3: loss = 0.057961925864219666
+Epoch 4: loss = 0.05796191841363907
+Epoch 5: loss = 0.05796191841363907
+Epoch 6: loss = 0.05796191841363907
+Epoch 7: loss = 0.05796191841363907
+Early stopping at epoch 7 with loss 0.057962268590927124
+Reconstruction for fluence = 6.9519279617756045 photons/pixel
+Epoch 0: loss = 0.4460054039955139
+Epoch 1: loss = 0.07145370543003082
+Epoch 2: loss = 0.07145089656114578
+Epoch 3: loss = 0.0714508667588234
+Epoch 4: loss = 0.0714508667588234
+Epoch 5: loss = 0.0714508667588234
+Epoch 6: loss = 0.0714508518576622
+Early stopping at epoch 6 with loss 0.07145370543003082
+Reconstruction for fluence = 16.23776739188721 photons/pixel
+Epoch 0: loss = 0.9589513540267944
+Epoch 1: loss = 0.09279169142246246
+Epoch 2: loss = 0.09278853982686996
+Epoch 3: loss = 0.09278851747512817
+Epoch 4: loss = 0.09278851747512817
+Epoch 5: loss = 0.09278851002454758
+Epoch 6: loss = 0.09278850257396698
+Early stopping at epoch 6 with loss 0.09279169142246246
+Reconstruction for fluence = 37.926901907322495 photons/pixel
+Epoch 0: loss = 2.1578969955444336
+Epoch 1: loss = 0.12473729252815247
+Epoch 2: loss = 0.1247338280081749
+Epoch 3: loss = 0.1247338056564331
+Epoch 4: loss = 0.12473374605178833
+Epoch 5: loss = 0.12473374605178833
+Epoch 6: loss = 0.12473373115062714
+Early stopping at epoch 6 with loss 0.12473729252815247
+Reconstruction for fluence = 88.58667904100822 photons/pixel
+Epoch 0: loss = 4.964356422424316
+Epoch 1: loss = 0.1646261364221573
+Epoch 2: loss = 0.16462057828903198
+Epoch 3: loss = 0.16462057828903198
+Epoch 4: loss = 0.16462057828903198
+Epoch 5: loss = 0.1646205335855484
+Epoch 6: loss = 0.1646205335855484
+Early stopping at epoch 6 with loss 0.1646261364221573
+Reconstruction for fluence = 206.9138081114788 photons/pixel
+Epoch 0: loss = 11.516135215759277
+Epoch 1: loss = 0.20944948494434357
+Epoch 2: loss = 0.20944516360759735
+Epoch 3: loss = 0.20944516360759735
+Epoch 4: loss = 0.20944516360759735
+Epoch 5: loss = 0.20944516360759735
+Epoch 6: loss = 0.20944516360759735
+Early stopping at epoch 6 with loss 0.20944948494434357
+Reconstruction for fluence = 483.2930238571752 photons/pixel
+Epoch 0: loss = 26.842002868652344
+Epoch 1: loss = 0.2496498078107834
+Epoch 2: loss = 0.2496413141489029
+Epoch 3: loss = 0.2496412992477417
+Epoch 4: loss = 0.2496412992477417
+Epoch 5: loss = 0.2496412992477417
+Epoch 6: loss = 0.2496412992477417
+Early stopping at epoch 6 with loss 0.2496498078107834
+Reconstruction for fluence = 1128.8378916846884 photons/pixel
+Epoch 0: loss = 62.62431716918945
+Epoch 1: loss = 0.27325722575187683
+Epoch 2: loss = 0.2732510268688202
+Epoch 3: loss = 0.2732510268688202
+Epoch 4: loss = 0.2732510268688202
+Epoch 5: loss = 0.2732510268688202
+Epoch 6: loss = 0.2732510268688202
+Early stopping at epoch 6 with loss 0.27325722575187683
+Reconstruction for fluence = 2636.6508987303555 photons/pixel
+Epoch 0: loss = 146.2263641357422
+Epoch 1: loss = 0.28166744112968445
+Epoch 2: loss = 0.2816549837589264
+Epoch 3: loss = 0.2816549837589264
+Epoch 4: loss = 0.281654953956604
+Epoch 5: loss = 0.281654953956604
+Epoch 6: loss = 0.281654953956604
+Early stopping at epoch 6 with loss 0.28166744112968445
+Reconstruction for fluence = 6158.482110660255 photons/pixel
+Epoch 0: loss = 341.433349609375
+Epoch 1: loss = 0.2762813866138458
+Epoch 2: loss = 0.27624446153640747
+Epoch 3: loss = 0.27624446153640747
+Epoch 4: loss = 0.27624446153640747
+Epoch 5: loss = 0.27624446153640747
+Epoch 6: loss = 0.27624446153640747
+Early stopping at epoch 6 with loss 0.2762813866138458
+Reconstruction for fluence = 14384.498882876629 photons/pixel
+Epoch 0: loss = 797.5006103515625
+Epoch 1: loss = 0.270667165517807
+Epoch 2: loss = 0.2669176459312439
+Epoch 3: loss = 0.2669175863265991
+Epoch 4: loss = 0.2669175863265991
+Epoch 5: loss = 0.2669175863265991
+Epoch 6: loss = 0.26691755652427673
+Epoch 7: loss = 0.26691755652427673
+Early stopping at epoch 7 with loss 0.2669176459312439
+Reconstruction for fluence = 33598.18286283781 photons/pixel
+Epoch 0: loss = 1862.8106689453125
+Epoch 1: loss = 0.25845634937286377
+Epoch 2: loss = 0.25709035992622375
+Epoch 3: loss = 0.2570902705192566
+Epoch 4: loss = 0.2570902705192566
+Epoch 5: loss = 0.2570902705192566
+Epoch 6: loss = 0.2570902705192566
+Epoch 7: loss = 0.2570902705192566
+Early stopping at epoch 7 with loss 0.25709035992622375
+Reconstruction for fluence = 78475.99703514607 photons/pixel
+Epoch 0: loss = 4350.84521484375
+Epoch 1: loss = 0.2511632740497589
+Epoch 2: loss = 0.25027355551719666
+Epoch 3: loss = 0.25027355551719666
+Epoch 4: loss = 0.2502734959125519
+Epoch 5: loss = 0.2502734959125519
+Epoch 6: loss = 0.2502734959125519
+Epoch 7: loss = 0.2502734959125519
+Early stopping at epoch 7 with loss 0.25027355551719666
+Reconstruction for fluence = 183298.07108324335 photons/pixel
+Epoch 0: loss = 10162.755859375
+Epoch 1: loss = 0.24747011065483093
+Epoch 2: loss = 0.24499273300170898
+Epoch 3: loss = 0.24499265849590302
+Epoch 4: loss = 0.24499265849590302
+Epoch 5: loss = 0.24499265849590302
+Epoch 6: loss = 0.24499265849590302
+Epoch 7: loss = 0.24499265849590302
+Early stopping at epoch 7 with loss 0.24499273300170898
+Reconstruction for fluence = 428133.2398719387 photons/pixel
+Epoch 0: loss = 23736.21875
+Epoch 1: loss = 0.2522112727165222
+Epoch 2: loss = 0.24232712388038635
+Epoch 3: loss = 0.24232695996761322
+Epoch 4: loss = 0.24232695996761322
+Epoch 5: loss = 0.24232695996761322
+Epoch 6: loss = 0.24232695996761322
+Epoch 7: loss = 0.24232695996761322
+Early stopping at epoch 7 with loss 0.24232712388038635
+Reconstruction for fluence = 1000000.0 photons/pixel
+Epoch 0: loss = 55441.875
+Epoch 1: loss = 0.2714695334434509
+Epoch 2: loss = 0.24097461998462677
+Epoch 3: loss = 0.24097464978694916
+Epoch 4: loss = 0.24097464978694916
+Epoch 5: loss = 0.24097464978694916
+Epoch 6: loss = 0.24097464978694916
+Epoch 7: loss = 0.24097464978694916
+Early stopping at epoch 7 with loss 0.24097461998462677
+Tensors initialization on device cuda
+Multiprobe = band_lim
+torch.Size([1, 64, 64])
+
+('MSE', 'PoissonNLL') RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.09999999999999999 photons/pixel
+Epoch 0: loss = 0.033217690885066986
+Epoch 1: loss = 0.03320176526904106
+Epoch 2: loss = 0.03318582847714424
+Epoch 3: loss = 0.03316990286111832
+Epoch 4: loss = 0.033153995871543884
+Epoch 5: loss = 0.033138103783130646
+Early stopping at epoch 5 with loss 0.033217690885066986
+Epoch 0: loss = 0.06630946695804596
+Epoch 1: loss = 0.04704137146472931
+Epoch 2: loss = 0.04692241922020912
+Epoch 3: loss = 0.04691305011510849
+Epoch 4: loss = 0.04691305011510849
+Epoch 5: loss = 0.04691305011510849
+Epoch 6: loss = 0.04691305011510849
+Epoch 7: loss = 0.04691305011510849
+Early stopping at epoch 7 with loss 0.04692241922020912
+Reconstruction for fluence = 0.23357214690901223 photons/pixel
+Epoch 0: loss = 0.05826667696237564
+Epoch 1: loss = 0.02868781052529812
+Epoch 2: loss = 0.02679366245865822
+Epoch 3: loss = 0.026793625205755234
+Epoch 4: loss = 0.026793625205755234
+Epoch 5: loss = 0.026793625205755234
+Epoch 6: loss = 0.026793625205755234
+Epoch 7: loss = 0.026793625205755234
+Early stopping at epoch 7 with loss 0.02679366245865822
+Epoch 0: loss = 0.09260980039834976
+Epoch 1: loss = 0.07580740749835968
+Epoch 2: loss = 0.07579990476369858
+Epoch 3: loss = 0.07579987496137619
+Epoch 4: loss = 0.0757998526096344
+Epoch 5: loss = 0.0757998526096344
+Epoch 6: loss = 0.0757998526096344
+Early stopping at epoch 6 with loss 0.07580740749835968
+Reconstruction for fluence = 0.5455594781168519 photons/pixel
+Epoch 0: loss = 0.09158946573734283
+Epoch 1: loss = 0.04049312695860863
+Epoch 2: loss = 0.04049203172326088
+Epoch 3: loss = 0.04049202427268028
+Epoch 4: loss = 0.040492020547389984
+Epoch 5: loss = 0.040492020547389984
+Epoch 6: loss = 0.040492020547389984
+Early stopping at epoch 6 with loss 0.04049312695860863
+Epoch 0: loss = 0.11124803125858307
+Epoch 1: loss = 0.09645327180624008
+Epoch 2: loss = 0.09644570201635361
+Epoch 3: loss = 0.09644544869661331
+Epoch 4: loss = 0.09644543379545212
+Epoch 5: loss = 0.09644543379545212
+Epoch 6: loss = 0.09644541144371033
+Early stopping at epoch 6 with loss 0.09645327180624008
+Reconstruction for fluence = 1.2742749857031335 photons/pixel
+Epoch 0: loss = 0.13613852858543396
+Epoch 1: loss = 0.05161464214324951
+Epoch 2: loss = 0.0505862794816494
+Epoch 3: loss = 0.050586145371198654
+Epoch 4: loss = 0.050586145371198654
+Epoch 5: loss = 0.050586141645908356
+Epoch 6: loss = 0.050586141645908356
+Epoch 7: loss = 0.050586141645908356
+Early stopping at epoch 7 with loss 0.0505862794816494
+Epoch 0: loss = 0.04832250997424126
+Epoch 1: loss = 0.035377729684114456
+Epoch 2: loss = 0.03535900637507439
+Epoch 3: loss = 0.03535677492618561
+Epoch 4: loss = 0.03535601124167442
+Epoch 5: loss = 0.035356003791093826
+Epoch 6: loss = 0.03535600006580353
+Early stopping at epoch 6 with loss 0.035377729684114456
+Reconstruction for fluence = 2.976351441631318 photons/pixel
+Epoch 0: loss = 0.22862602770328522
+Epoch 1: loss = 0.06212935596704483
+Epoch 2: loss = 0.05910906195640564
+Epoch 3: loss = 0.05910871922969818
+Epoch 4: loss = 0.05910864844918251
+Epoch 5: loss = 0.05910864472389221
+Epoch 6: loss = 0.05910864472389221
+Epoch 7: loss = 0.05910864472389221
+Early stopping at epoch 7 with loss 0.05910906195640564
+Epoch 0: loss = -0.3530307710170746
+Epoch 1: loss = -0.36901798844337463
+Epoch 2: loss = -0.3690493404865265
+Epoch 3: loss = -0.36905816197395325
+Epoch 4: loss = -0.3690612018108368
+Epoch 5: loss = -0.3690614402294159
+Epoch 6: loss = -0.3690618574619293
+Early stopping at epoch 6 with loss -0.36901798844337463
+Reconstruction for fluence = 6.9519279617756045 photons/pixel
+Epoch 0: loss = 0.4406696856021881
+Epoch 1: loss = 0.07180797308683395
+Epoch 2: loss = 0.07180717587471008
+Epoch 3: loss = 0.07180716097354889
+Epoch 4: loss = 0.0718071460723877
+Epoch 5: loss = 0.0718071237206459
+Epoch 6: loss = 0.0718071237206459
+Early stopping at epoch 6 with loss 0.07180797308683395
+Epoch 0: loss = -1.9179164171218872
+Epoch 1: loss = -1.940392017364502
+Epoch 2: loss = -1.9404281377792358
+Epoch 3: loss = -1.9404395818710327
+Epoch 4: loss = -1.9404395818710327
+Epoch 5: loss = -1.9404401779174805
+Epoch 6: loss = -1.9404420852661133
+Early stopping at epoch 6 with loss -1.940392017364502
+Reconstruction for fluence = 16.23776739188721 photons/pixel
+Epoch 0: loss = 0.9519201517105103
+Epoch 1: loss = 0.0949094295501709
+Epoch 2: loss = 0.09490776807069778
+Epoch 3: loss = 0.09490776062011719
+Epoch 4: loss = 0.09490776062011719
+Epoch 5: loss = 0.09490776062011719
+Epoch 6: loss = 0.09490776062011719
+Early stopping at epoch 6 with loss 0.0949094295501709
+Epoch 0: loss = -7.006989002227783
+Epoch 1: loss = -7.038598537445068
+Epoch 2: loss = -7.038621425628662
+Epoch 3: loss = -7.038623809814453
+Epoch 4: loss = -7.038625240325928
+Epoch 5: loss = -7.038626194000244
+Epoch 6: loss = -7.0386271476745605
+Early stopping at epoch 6 with loss -7.038598537445068
+Reconstruction for fluence = 37.926901907322495 photons/pixel
+Epoch 0: loss = 2.150507688522339
+Epoch 1: loss = 0.12686122953891754
+Epoch 2: loss = 0.12685944139957428
+Epoch 3: loss = 0.12685933709144592
+Epoch 4: loss = 0.12685933709144592
+Epoch 5: loss = 0.12685933709144592
+Epoch 6: loss = 0.12685933709144592
+Early stopping at epoch 6 with loss 0.12686122953891754
+Epoch 0: loss = -22.271421432495117
+Epoch 1: loss = -22.311628341674805
+Epoch 2: loss = -22.311662673950195
+Epoch 3: loss = -22.311670303344727
+Epoch 4: loss = -22.311674118041992
+Epoch 5: loss = -22.311674118041992
+Epoch 6: loss = -22.311674118041992
+Early stopping at epoch 6 with loss -22.311628341674805
+Reconstruction for fluence = 88.58667904100822 photons/pixel
+Epoch 0: loss = 4.943882465362549
+Epoch 1: loss = 0.16620302200317383
+Epoch 2: loss = 0.16620168089866638
+Epoch 3: loss = 0.16620168089866638
+Epoch 4: loss = 0.16620168089866638
+Epoch 5: loss = 0.16620168089866638
+Epoch 6: loss = 0.16620168089866638
+Early stopping at epoch 6 with loss 0.16620302200317383
+Epoch 0: loss = -65.89141845703125
+Epoch 1: loss = -65.93535614013672
+Epoch 2: loss = -65.93537902832031
+Epoch 3: loss = -65.93537902832031
+Epoch 4: loss = -65.93540954589844
+Epoch 5: loss = -65.93540954589844
+Epoch 6: loss = -65.93541717529297
+Early stopping at epoch 6 with loss -65.93535614013672
+Reconstruction for fluence = 206.9138081114788 photons/pixel
+Epoch 0: loss = 11.46154499053955
+Epoch 1: loss = 0.20921511948108673
+Epoch 2: loss = 0.2092142254114151
+Epoch 3: loss = 0.20921409130096436
+Epoch 4: loss = 0.20921409130096436
+Epoch 5: loss = 0.20921409130096436
+Epoch 6: loss = 0.20921409130096436
+Early stopping at epoch 6 with loss 0.20921511948108673
+Epoch 0: loss = -186.2067108154297
+Epoch 1: loss = -186.24847412109375
+Epoch 2: loss = -186.24850463867188
+Epoch 3: loss = -186.24851989746094
+Epoch 4: loss = -186.24851989746094
+Epoch 5: loss = -186.24853515625
+Epoch 6: loss = -186.24851989746094
+Early stopping at epoch 6 with loss -186.24847412109375
+Reconstruction for fluence = 483.2930238571752 photons/pixel
+Epoch 0: loss = 26.728612899780273
+Epoch 1: loss = 0.24926556646823883
+Epoch 2: loss = 0.2492639124393463
+Epoch 3: loss = 0.24926356971263885
+Epoch 4: loss = 0.24926356971263885
+Epoch 5: loss = 0.24926356971263885
+Epoch 6: loss = 0.24926356971263885
+Early stopping at epoch 6 with loss 0.24926556646823883
+Epoch 0: loss = -510.38958740234375
+Epoch 1: loss = -510.4244079589844
+Epoch 2: loss = -510.4244079589844
+Epoch 3: loss = -510.4244079589844
+Epoch 4: loss = -510.4244079589844
+Epoch 5: loss = -510.4244079589844
+Epoch 6: loss = -510.4244079589844
+Early stopping at epoch 6 with loss -510.4244079589844
+Reconstruction for fluence = 1128.8378916846884 photons/pixel
+Epoch 0: loss = 62.346588134765625
+Epoch 1: loss = 0.27186843752861023
+Epoch 2: loss = 0.2718674838542938
+Epoch 3: loss = 0.27186742424964905
+Epoch 4: loss = 0.27186742424964905
+Epoch 5: loss = 0.27186742424964905
+Epoch 6: loss = 0.27186742424964905
+Early stopping at epoch 6 with loss 0.27186843752861023
+Epoch 0: loss = -1368.2574462890625
+Epoch 1: loss = -1368.28125
+Epoch 2: loss = -1368.28125
+Epoch 3: loss = -1368.28125
+Epoch 4: loss = -1368.28125
+Epoch 5: loss = -1368.2813720703125
+Epoch 6: loss = -1368.2813720703125
+Early stopping at epoch 6 with loss -1368.28125
+Reconstruction for fluence = 2636.6508987303555 photons/pixel
+Epoch 0: loss = 145.56707763671875
+Epoch 1: loss = 0.2807561457157135
+Epoch 2: loss = 0.28075313568115234
+Epoch 3: loss = 0.28075313568115234
+Epoch 4: loss = 0.28075313568115234
+Epoch 5: loss = 0.28075313568115234
+Epoch 6: loss = 0.28075313568115234
+Early stopping at epoch 6 with loss 0.2807561457157135
+Epoch 0: loss = -3605.457763671875
+Epoch 1: loss = -3605.471923828125
+Epoch 2: loss = -3605.471923828125
+Epoch 3: loss = -3605.471923828125
+Epoch 4: loss = -3605.471923828125
+Epoch 5: loss = -3605.471923828125
+Epoch 6: loss = -3605.471923828125
+Early stopping at epoch 6 with loss -3605.471923828125
+Reconstruction for fluence = 6158.482110660255 photons/pixel
+Epoch 0: loss = 339.96221923828125
+Epoch 1: loss = 0.2783382534980774
+Epoch 2: loss = 0.27833235263824463
+Epoch 3: loss = 0.27833235263824463
+Epoch 4: loss = 0.27833235263824463
+Epoch 5: loss = 0.27833235263824463
+Epoch 6: loss = 0.27833235263824463
+Early stopping at epoch 6 with loss 0.2783382534980774
+Epoch 0: loss = -9381.6826171875
+Epoch 1: loss = -9381.6884765625
+Epoch 2: loss = -9381.689453125
+Epoch 3: loss = -9381.689453125
+Epoch 4: loss = -9381.6884765625
+Epoch 5: loss = -9381.689453125
+Epoch 6: loss = -9381.689453125
+Epoch 7: loss = -9381.689453125
+Early stopping at epoch 7 with loss -9381.689453125
+Reconstruction for fluence = 14384.498882876629 photons/pixel
+Epoch 0: loss = 793.8052368164062
+Epoch 1: loss = 0.26879754662513733
+Epoch 2: loss = 0.26867470145225525
+Epoch 3: loss = 0.2686746418476105
+Epoch 4: loss = 0.2686746418476105
+Epoch 5: loss = 0.2686746418476105
+Epoch 6: loss = 0.2686746418476105
+Epoch 7: loss = 0.2686746418476105
+Early stopping at epoch 7 with loss 0.26867470145225525
+Epoch 0: loss = -24157.02734375
+Epoch 1: loss = -24157.029296875
+Epoch 2: loss = -24157.029296875
+Epoch 3: loss = -24157.029296875
+Epoch 4: loss = -24157.029296875
+Epoch 5: loss = -24157.029296875
+Epoch 6: loss = -24157.029296875
+Early stopping at epoch 6 with loss -24157.029296875
+Reconstruction for fluence = 33598.18286283781 photons/pixel
+Epoch 0: loss = 1854.1351318359375
+Epoch 1: loss = 0.2567404806613922
+Epoch 2: loss = 0.25666770339012146
+Epoch 3: loss = 0.25666770339012146
+Epoch 4: loss = 0.25666770339012146
+Epoch 5: loss = 0.25666770339012146
+Epoch 6: loss = 0.25666770339012146
+Early stopping at epoch 6 with loss 0.2567404806613922
+Epoch 0: loss = -61661.0703125
+Epoch 1: loss = -61661.0703125
+Epoch 2: loss = -61661.0703125
+Epoch 3: loss = -61661.0703125
+Epoch 4: loss = -61661.0703125
+Epoch 5: loss = -61661.0703125
+Early stopping at epoch 5 with loss -61661.0703125
+Reconstruction for fluence = 78475.99703514607 photons/pixel
+Epoch 0: loss = 4330.96044921875
+Epoch 1: loss = 0.2507704198360443
+Epoch 2: loss = 0.2506689727306366
+Epoch 3: loss = 0.250669002532959
+Epoch 4: loss = 0.250669002532959
+Epoch 5: loss = 0.250669002532959
+Epoch 6: loss = 0.250669002532959
+Epoch 7: loss = 0.250669002532959
+Early stopping at epoch 7 with loss 0.2506689727306366
+Epoch 0: loss = -156237.296875
+Epoch 1: loss = -156237.296875
+Epoch 2: loss = -156237.296875
+Epoch 3: loss = -156237.296875
+Epoch 4: loss = -156237.296875
+Epoch 5: loss = -156237.296875
+Early stopping at epoch 5 with loss -156237.296875
+Reconstruction for fluence = 183298.07108324335 photons/pixel
+Epoch 0: loss = 10115.724609375
+Epoch 1: loss = 0.2455001324415207
+Epoch 2: loss = 0.24487267434597015
+Epoch 3: loss = 0.24487267434597015
+Epoch 4: loss = 0.24487267434597015
+Epoch 5: loss = 0.24487267434597015
+Epoch 6: loss = 0.24487267434597015
+Epoch 7: loss = 0.24487267434597015
+Early stopping at epoch 7 with loss 0.24487267434597015
+Epoch 0: loss = -393504.3125
+Epoch 1: loss = -393504.3125
+Epoch 2: loss = -393504.3125
+Epoch 3: loss = -393504.3125
+Epoch 4: loss = -393504.3125
+Epoch 5: loss = -393504.3125
+Early stopping at epoch 5 with loss -393504.3125
+Reconstruction for fluence = 428133.2398719387 photons/pixel
+Epoch 0: loss = 23628.236328125
+Epoch 1: loss = 0.2436467409133911
+Epoch 2: loss = 0.2428366094827652
+Epoch 3: loss = 0.2428366094827652
+Epoch 4: loss = 0.2428366094827652
+Epoch 5: loss = 0.2428366094827652
+Epoch 6: loss = 0.2428366094827652
+Epoch 7: loss = 0.2428366094827652
+Early stopping at epoch 7 with loss 0.2428366094827652
+Epoch 0: loss = -985797.1875
+Epoch 1: loss = -985797.1875
+Epoch 2: loss = -985797.1875
+Epoch 3: loss = -985797.1875
+Epoch 4: loss = -985797.1875
+Epoch 5: loss = -985797.1875
+Early stopping at epoch 5 with loss -985797.1875
+Reconstruction for fluence = 1000000.0 photons/pixel
+Epoch 0: loss = 55187.58203125
+Epoch 1: loss = 0.2425771802663803
+Epoch 2: loss = 0.24121396243572235
+Epoch 3: loss = 0.24121396243572235
+Epoch 4: loss = 0.24121396243572235
+Epoch 5: loss = 0.24121396243572235
+Epoch 6: loss = 0.24121396243572235
+Epoch 7: loss = 0.24121396243572235
+Early stopping at epoch 7 with loss 0.24121396243572235
+Epoch 0: loss = -2458376.0
+Epoch 1: loss = -2458376.0
+Epoch 2: loss = -2458375.75
+Epoch 3: loss = -2458375.75
+Epoch 4: loss = -2458375.75
+Epoch 5: loss = -2458375.75
+Early stopping at epoch 5 with loss -2458376.0
+Simulation for steps_size=10 and n_fluences=20 completed!
