@@ -59,7 +59,7 @@ def main():
         multiprobe='grad',
         grad_weights=weights
     )
-    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs_new/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
         
     ### MSE --> NLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
@@ -70,7 +70,7 @@ def main():
         grad_weights=weights
     )
             
-    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs_new/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
 
 
 if __name__ == '__main__':

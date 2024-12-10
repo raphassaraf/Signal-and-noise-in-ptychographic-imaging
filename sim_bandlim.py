@@ -49,7 +49,7 @@ def main():
         multiprobe='band_lim',
         n_probes=n_modes
     )
-    save_output(rec_dict, f'rec_bandlim_{n_modes}.pkl')
+    save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}.pkl')
         
     ### MSE --> NLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
@@ -60,7 +60,7 @@ def main():
         n_probes=n_modes
     )
             
-    save_output(rec_dict, f'rec_bandlim_{n_modes}.pkl')
+    save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}.pkl')
 
 
 if __name__ == '__main__':

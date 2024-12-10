@@ -1,0 +1,44 @@
+Running simulation for principal_mode_weight=1 and n_fluences=20
+Weights: [100   0   0]
+Tensors initialization on device cuda
+Multiprobe = grad
+
+('MSE', None) RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.09999999999999999 photons/pixel
+Epoch 0: loss = 0.0006372707430273294
+Epoch 1: loss = 0.0006372707430273294
+Epoch 2: loss = 0.0006372707430273294
+Epoch 3: loss = 0.0006372707430273294
+Epoch 4: loss = 0.0006372707430273294
+Epoch 5: loss = 0.0006372707430273294
+Early stopping at epoch 5 with loss 0.0006372707430273294
+Reconstruction for fluence = 0.23357214690901223 photons/pixel
+Epoch 0: loss = 0.0014579123817384243
+Epoch 1: loss = 0.0014579123817384243
+Epoch 2: loss = 0.0014579123817384243
+Epoch 3: loss = 0.0014579123817384243
+Epoch 4: loss = 0.0014579123817384243
+Epoch 5: loss = 0.0014579123817384243
+Early stopping at epoch 5 with loss 0.0014579123817384243
+Reconstruction for fluence = 0.5455594781168519 photons/pixel
+Epoch 0: loss = 0.0032839891500771046
+Epoch 1: loss = 0.003283889964222908
+Epoch 2: loss = 0.003283790545538068
+Epoch 3: loss = 0.003283691592514515
+Epoch 4: loss = 0.0032835921738296747
+Epoch 5: loss = 0.003283492987975478
+Early stopping at epoch 5 with loss 0.0032839891500771046
+Reconstruction for fluence = 1.2742749857031335 photons/pixel
+Epoch 0: loss = 0.007288849912583828
+Epoch 1: loss = 0.007288347464054823
+Epoch 2: loss = 0.0072878459468483925
+Epoch 3: loss = 0.007287343963980675
+Epoch 4: loss = 0.007286842912435532
+Epoch 5: loss = 0.007286340929567814
+Early stopping at epoch 5 with loss 0.007288849912583828
+Reconstruction for fluence = 2.976351441631318 photons/pixel
+Epoch 0: loss = 0.01568470522761345
+Epoch 1: loss = 0.015682270750403404
+Epoch 2: loss = 0.015679839998483658
+Epoch 3: loss = 0.015677407383918762
