@@ -1,0 +1,62 @@
+Running simulation for n_fluences=10
+Tensors initialization on device cuda
+Multiprobe = None
+
+('MSE', None) RECONSTRUCTIONS
+
+Reconstruction for fluence = 1000.0 photons/pixel
+Epoch 0: loss = 0.7165815830230713
+Epoch 1: loss = 0.21638482809066772
+Epoch 2: loss = 1.8606576919555664
+Epoch 3: loss = 0.0861215740442276
+Epoch 4: loss = 0.08415339887142181
+Epoch 5: loss = 0.08415339887142181
+Epoch 6: loss = 0.08415339887142181
+Epoch 7: loss = 0.08415339887142181
+Epoch 8: loss = 0.08415339887142181
+Epoch 9: loss = 0.08415339887142181
+Early stopping at epoch 9 with loss 0.08415339887142181
+Reconstruction for fluence = 2154.434690031884 photons/pixel
+Epoch 0: loss = 1.4827568531036377
+Epoch 1: loss = 0.2249404937028885
+Epoch 2: loss = 0.11043614149093628
+Epoch 3: loss = 0.11043594777584076
+Epoch 4: loss = 0.11043594777584076
+Epoch 5: loss = 0.11043594777584076
+Epoch 6: loss = 0.11043594777584076
+Epoch 7: loss = 0.11043594777584076
+Epoch 8: loss = 0.11043594777584076
+Early stopping at epoch 8 with loss 0.11043594777584076
+Reconstruction for fluence = 4641.588833612777 photons/pixel
+Epoch 0: loss = 3.1356520652770996
+Epoch 1: loss = 0.14411064982414246
+Epoch 2: loss = 0.14410105347633362
+Epoch 3: loss = 0.14410102367401123
+Epoch 4: loss = 0.14410102367401123
+Epoch 5: loss = 0.14410102367401123
+Epoch 6: loss = 0.14410102367401123
+Epoch 7: loss = 0.14410102367401123
+Epoch 8: loss = 0.14410102367401123
+Early stopping at epoch 8 with loss 0.14410102367401123
+Reconstruction for fluence = 10000.0 photons/pixel
+Epoch 0: loss = 6.698169708251953
+Epoch 1: loss = 0.18352049589157104
+Epoch 2: loss = 0.18351976573467255
+Epoch 3: loss = 0.18351976573467255
+Epoch 4: loss = 0.18351976573467255
+Epoch 5: loss = 0.18351976573467255
+Epoch 6: loss = 0.18351976573467255
+Epoch 7: loss = 0.18351976573467255
+Early stopping at epoch 7 with loss 0.18351976573467255
+Reconstruction for fluence = 21544.346900318822 photons/pixel
+Epoch 0: loss = 14.371877670288086
+Epoch 1: loss = 0.22411280870437622
+Epoch 2: loss = 0.22411155700683594
+Epoch 3: loss = 0.22411155700683594
+Epoch 4: loss = 0.22411155700683594
+Epoch 5: loss = 0.22411155700683594
+Epoch 6: loss = 0.22411155700683594
+Epoch 7: loss = 0.22411155700683594
+Early stopping at epoch 7 with loss 0.22411155700683594
+Reconstruction for fluence = 46415.888336127726 photons/pixel
+Epoch 0: loss = 30.90485191345215

@@ -23,7 +23,7 @@ def main():
     args = parser.parse_args()
 
     n_flu = args.n_fluences
-    flu_i, flu_f = -1, 6
+    flu_i, flu_f = 1, 6
     fluences = np.logspace(flu_i, flu_f, n_flu)
     
     rec_dict = {
@@ -38,16 +38,16 @@ def main():
         fluences,
         'MSE',
     )
-    save_output(rec_dict, f'outputs/steps_size/rec_fluence.pkl')
+    save_output(rec_dict, f'outputs_new/rec_fluence.pkl')
         
-    ### MSE --> NLL ###
-    rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
-        fluences,
-        'MSE',
-        'PoissonNLL',
-    )
+    # ### MSE --> NLL ###
+    # rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
+    #     fluences,
+    #     'MSE',
+    #     'PoissonNLL',
+    # )
             
-    save_output(rec_dict, f'outputs/steps_size/rec_fluence.pkl')
+    # save_output(rec_dict, f'outputs_new/rec_fluence.pkl')
 
 
 if __name__ == '__main__':

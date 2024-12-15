@@ -7,7 +7,7 @@ from skimage.draw import disk
 from torch.optim import Adam, lr_scheduler, LBFGS
 from torchvision import transforms
 
-from cdtools.tools import propagators, interactions
+from cdtools.tools import propagators, interactions, losses
 
 
 def periodic_padding(img):
@@ -224,7 +224,7 @@ def mse_amplitude_loss(sim_intensity, measured_intensity):
     '''
     Corrected MSE loss
     '''
-    eps = 1e-10 # term to prevent derivative from blowing up during optimization
+    eps = 1e-14 # term to prevent derivative from blowing up during optimization
     loss = t.sum(
         (t.sqrt(sim_intensity+eps) - t.sqrt(measured_intensity+eps))**2
         ) / t.numel(sim_intensity)
@@ -233,14 +233,14 @@ def mse_amplitude_loss(sim_intensity, measured_intensity):
     
     
 def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
-             lr=1, patience=5, tolerance=1e-4, loss_f='PoissonNLL', show=False):
+             lr=0.1, patience=10, tolerance=1e-4, loss_f='PoissonNLL', show=False):
     '''
     Reconstruct the object using autodiff maximum likelihood.
     loss_f: {'PoissonNLL', 'MSE'}
     '''
 
     if loss_f == 'PoissonNLL': loss_fct = nn.PoissonNLLLoss(log_input=False)
-    elif loss_f == 'MSE': loss_fct = mse_amplitude_loss
+    elif loss_f == 'MSE': loss_fct = losses.amplitude_mse
         
     obj_guess.requires_grad = True
     optimizer = LBFGS([obj_guess], lr=lr)
@@ -253,12 +253,12 @@ def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
         
         optimizer.zero_grad()
         
-        predicted_patterns = get_diffractions_direct( # correct, but why ? --> annotate
+        predicted_patterns = t.clamp(get_diffractions_direct( # correct, but why ? --> annotate
             probe=sim_probe,
             obj=periodic_padding(obj_guess),
             translations=translations,
-        )
-        
+        ), min=1e-10)
+        # print(f"Measured intensity range: {predicted_patterns.min()} - {predicted_patterns.max()}")
         loss = loss_fct(predicted_patterns, diffractions)
         loss.backward()     
         
@@ -283,3 +283,62 @@ def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
             break
 
     return obj_guess.detach().clone().to('cpu'), loss_list
+
+
+
+# def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
+#              lr=0.1, batch_size=50, min_lr=1e-9, patience=5, tolerance=1e-8, loss_f='PoissonNLL', show=False):
+#     '''
+#     Reconstruct the object using autodiff maximum likelihood.
+#     loss_f: {'PoissonNLL', 'MSE'}
+#     '''
+    
+#     if loss_f == 'PoissonNLL': loss_fct = nn.PoissonNLLLoss(log_input=False)
+#     elif loss_f == 'MSE': loss_fct = losses.amplitude_mse
+        
+#     obj_guess.requires_grad = True
+#     optimizer = Adam([obj_guess], lr=lr)
+#     scheduler = lr_scheduler.ReduceLROnPlateau(
+#         optimizer, mode='min', factor=0.1, patience=8, threshold=1e-4, eps=1e-10
+#     )
+    
+#     loss_list = []
+#     for e in range(epochs):
+#         idx = t.randperm(diffractions.size(0))
+        
+#         l_batch = []
+#         for b in range(translations.shape[0] // batch_size):
+            
+#             idx_batch = idx[b*batch_size:(b+1)*batch_size]
+            
+#             predicted_patterns = t.clamp(get_diffractions_direct(
+#                 probe=sim_probe,
+#                 obj=periodic_padding(obj_guess),
+#                 translations=translations[idx_batch],
+#             ), 1e-10)
+#             optimizer.zero_grad()
+            
+#             l = loss_fct(predicted_patterns, diffractions[idx_batch])
+#             l_batch.append(l.item())
+            
+#             l.backward()
+#             optimizer.step()
+        
+#         loss = sum(l_batch)
+#         loss_list.append(loss)
+#         scheduler.step(loss)
+        
+#         current_lr = scheduler.get_last_lr()[0]
+        
+#         if current_lr < lr:
+#             batch_size = translations.shape[0]
+            
+#         if current_lr < min_lr:
+#             print("Stopping early due to low learning rate")
+#             break
+#         if e%10 == 0 and show == True:
+#             plt.imshow(t.abs(obj_guess).detach().to('cpu'))
+#             plt.show(block=False)
+#             plt.pause(0.001)
+#         print(f'Epoch {e}: loss = {loss} | lr = {current_lr}')
+#     return obj_guess.detach().clone().to('cpu'), loss_list

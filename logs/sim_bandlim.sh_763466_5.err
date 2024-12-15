@@ -1,0 +1,7 @@
+/das/work/p22/p22180/conda_envs/ptycho/lib/python3.12/site-packages/skimage/draw/draw.py:48: RuntimeWarning: invalid value encountered in divide
+  distances = ((r * cos_alpha + c * sin_alpha) / r_rad) ** 2 + (
+/das/work/p22/p22180/conda_envs/ptycho/lib/python3.12/site-packages/skimage/draw/draw.py:49: RuntimeWarning: invalid value encountered in divide
+  (r * sin_alpha - c * cos_alpha) / c_rad
+/das/work/p22/p22180/conda_envs/ptycho/lib/python3.12/site-packages/torch/functional.py:513: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /opt/conda/conda-bld/pytorch_1724789220573/work/aten/src/ATen/native/TensorShape.cpp:3609.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+slurmstepd: error: *** JOB 767841 ON ra-gpu-002 CANCELLED AT 2024-12-13T18:07:24 ***

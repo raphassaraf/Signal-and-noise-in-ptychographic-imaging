@@ -8,7 +8,7 @@ module load anaconda/2023-06-19
 source /opt/psi/TOMCAT/anaconda/2023-06-19/conda/etc/profile.d/conda.sh
 conda activate ptycho
 
-n_fluences=60
+n_fluences=12
 
 echo "Running simulation for n_fluences=$n_fluences"
 

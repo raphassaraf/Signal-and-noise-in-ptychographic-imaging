@@ -72,7 +72,7 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
     reconstructed_loss_dict = dict.fromkeys(fluences)
 
     if loss_fct_2 is None:
-        epochs_1 = 1000
+        epochs_1 = 100
     else:
         epochs_1 = 15
 
@@ -100,7 +100,7 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
                 obj_guess = obj_guess,
                 sim_probe = true_probe,
                 translations = translations,
-                epochs = 1000,
+                epochs = 100,
                 loss_f=loss_fct_2,
             )
             reconstructed_loss_dict[flu] =  {loss_fct_1: loss_1, loss_fct_2: loss_2}

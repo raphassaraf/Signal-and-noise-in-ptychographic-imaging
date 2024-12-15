@@ -84,7 +84,7 @@ def plot_results_flu(
 def plot_metric_flu(fluences, mse_dict, ssim_dict):
     f, ax = plt.subplots(1, 2, figsize=(8, 3))
 
-    legends = ['MSE', 'MSE - PNLL']
+    legends = ['MSE', 'MSE - PNLL', 'old MSE']
 
     for mse, ssim, l in zip(mse_dict.values(), ssim_dict.values(), legends):
         ax[0].scatter(fluences, mse, s=5, label=l)
