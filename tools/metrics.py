@@ -26,7 +26,7 @@ def nmse_phase(pred_img, true_img):
     return mse / (t.abs(true_img)**2).sum()
 
 
-def get_MSE_flu(true_img, rec_obj_dict):
+def get_MSE_flu(true_img, rec_obj_dict, mse_fn=nmse_phase):
     '''
     Calculate MSE values for all steps sizes and fluences.
     '''
@@ -35,7 +35,7 @@ def get_MSE_flu(true_img, rec_obj_dict):
 
     mse_array = np.zeros(fluences.shape[0])
     for i, (flu, pred_img) in enumerate(rec_obj_dict.items()):
-        mse_array[i] = nmse_phase(pred_img, true_img).item()
+        mse_array[i] = mse_fn(pred_img, true_img).item()
             
     return mse_array
 
