@@ -233,7 +233,7 @@ def mse_amplitude_loss(sim_intensity, measured_intensity):
     
     
 def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
-             lr=0.1, patience=10, tolerance=1e-4, loss_f='PoissonNLL', show=False):
+             lr=1, patience=8, tolerance=1e-4, loss_f='PoissonNLL', show=False):
     '''
     Reconstruct the object using autodiff maximum likelihood.
     loss_f: {'PoissonNLL', 'MSE'}

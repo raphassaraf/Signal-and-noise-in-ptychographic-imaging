@@ -492,3 +492,62 @@ Epoch 10: loss = 18470208.0
 Epoch 11: loss = 8935554.0
 Epoch 12: loss = 5236049.0
 Epoch 13: loss = 4849496.0
+Epoch 14: loss = 4840766.0
+Epoch 15: loss = 4840669.0
+Epoch 16: loss = 4840668.0
+Epoch 17: loss = 4840667.5
+Epoch 18: loss = 4840667.0
+Epoch 19: loss = 4840667.0
+Epoch 20: loss = 4840667.0
+Epoch 21: loss = 4840667.0
+Epoch 22: loss = 4840667.0
+Epoch 23: loss = 4840667.0
+Epoch 24: loss = 4840667.0
+Epoch 25: loss = 4840667.0
+Epoch 26: loss = 4840667.0
+Epoch 27: loss = 4840667.0
+Epoch 28: loss = 4840667.0
+Early stopping at epoch 28 with loss 4840667.0
+Reconstruction for fluence = 1000000.0 photons/pixel
+Epoch 0: loss = 9211267072.0
+Epoch 1: loss = 2.3134757661571568e+21
+Epoch 2: loss = 3.4195220642159133e+19
+Epoch 3: loss = 5.054357027631923e+17
+Epoch 4: loss = 7470789594972160.0
+Epoch 5: loss = 110426176094208.0
+Epoch 6: loss = 1633449148416.0
+Epoch 7: loss = 25060503552.0
+Epoch 8: loss = 897815488.0
+Epoch 9: loss = 242296800.0
+Epoch 10: loss = 59290156.0
+Epoch 11: loss = 21217488.0
+Epoch 12: loss = 8466156.0
+Epoch 13: loss = 4762140.0
+Epoch 14: loss = 4565821.5
+Epoch 15: loss = 4562749.5
+Epoch 16: loss = 4562726.0
+Epoch 17: loss = 4562724.5
+Epoch 18: loss = 4562724.0
+Epoch 19: loss = 4562724.0
+Epoch 20: loss = 4562723.5
+Epoch 21: loss = 4562723.0
+Epoch 22: loss = 4562723.0
+Epoch 23: loss = 4562723.0
+Epoch 24: loss = 4562723.0
+Epoch 25: loss = 4562723.0
+Epoch 26: loss = 4562723.0
+Epoch 27: loss = 4562723.0
+Epoch 28: loss = 4562723.0
+Epoch 29: loss = 4562723.0
+Epoch 30: loss = 4562723.0
+Epoch 31: loss = 4562723.0
+Early stopping at epoch 31 with loss 4562723.0
+Tensors initialization on device cuda
+Multiprobe = band_lim
+torch.Size([9, 64, 64])
+
+('MSE', 'PoissonNLL') RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.09999999999999999 photons/pixel
+Epoch 0: loss = 10665.9697265625
+Epoch 1: loss = 3810.67236328125

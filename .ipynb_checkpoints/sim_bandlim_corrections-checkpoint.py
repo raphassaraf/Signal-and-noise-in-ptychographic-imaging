@@ -44,7 +44,7 @@ def main():
     #     'loss_mse_nll': None
     # }
     
-    # ### MSE ###
+    ### MSE ###
     # rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
     #     fluences,
     #     'MSE',
@@ -54,21 +54,13 @@ def main():
     # save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}.pkl')
         
     ### MSE --> NLL ###
-    correction = 0
-    if n_modes == 5: correction = 14
-    elif n_modes == 6: correction = 9
-    
-    rec_dict_temp_obj_mse_nll, rec_dict_temp_loss_mse_nll = reconstruct_flu(
-        fluences[correction:],
+    rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
+        fluences,
         'MSE',
         'PoissonNLL',
         multiprobe='band_lim',
         n_probes=n_modes
     )
-
-    for key in rec_dict_temp_obj_mse_nll.keys():
-        rec_dict['object_mse_nll'][key] = rec_dict_temp_obj_mse_nll[key]
-        rec_dict['loss_mse_nll'][key] = rec_dict_temp_loss_mse_nll[key]
             
     save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}_correction.pkl')
 
