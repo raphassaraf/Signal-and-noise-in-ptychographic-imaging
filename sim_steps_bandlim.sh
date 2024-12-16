@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -p gpu-week 
 #SBATCH --gres=gpu:1
-#SBATCH --array=1-30
+#SBATCH --array=1-25
 #SBATCH --output=logs/%x_%A_%a.out  # Output log file (%x: job name, %A: job ID, %a: array task ID)
 #SBATCH --error=logs/%x_%A_%a.err   # Error log file
 

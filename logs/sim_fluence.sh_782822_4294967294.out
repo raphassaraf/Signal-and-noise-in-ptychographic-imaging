@@ -1,0 +1,9 @@
+Running simulation for n_fluences=80
+Tensors initialization on device cuda
+Multiprobe = None
+
+('MSE', None) RECONSTRUCTIONS
+
+Reconstruction for fluence = 0.01 photons/pixel
+Epoch 0: loss = 1072.9332275390625
+Epoch 1: loss = 343.83721923828125
