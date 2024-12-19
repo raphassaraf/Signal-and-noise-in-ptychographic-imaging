@@ -81,7 +81,7 @@ def plot_results_flu(
 
 
 def plot_metric_flu(fluences, mse_dict, ssim_dict):
-    f, ax = plt.subplots(1, 2, figsize=(8, 3))
+    f, ax = plt.subplots(1, 2, figsize=(8, 2.5))
 
     legends = ['MSE', 'MSE - PNLL', 'old MSE']
     colors = ['b', 'r']
@@ -145,7 +145,7 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
 
     if idx_param is None: idx_param = np.arange(0, len(param_keys))
 
-    f, ax = plt.subplots(2, 2, figsize=(8, 6))
+    f, ax = plt.subplots(2, 2, figsize=(8, 5))
     colormap = plt.cm.viridis
     colors = np.array([colormap(i) for i in np.linspace(1, 0, idx_param.shape[0])])
     mark_size = 4
