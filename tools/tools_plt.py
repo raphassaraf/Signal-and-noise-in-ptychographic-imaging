@@ -4,7 +4,6 @@ import torch as t
 
 from matplotlib.ticker import FormatStrFormatter
 
-
 plt.rcParams.update({
     'font.size': 12,
     'xtick.labelsize' : 12,
@@ -85,10 +84,11 @@ def plot_metric_flu(fluences, mse_dict, ssim_dict):
     f, ax = plt.subplots(1, 2, figsize=(8, 3))
 
     legends = ['MSE', 'MSE - PNLL', 'old MSE']
+    colors = ['b', 'r']
 
-    for mse, ssim, l in zip(mse_dict.values(), ssim_dict.values(), legends):
-        ax[0].scatter(fluences, mse, s=5, label=l)
-        ax[1].scatter(fluences, 1 - ssim, s=5, label=l)
+    for mse, ssim, l, c in zip(mse_dict.values(), ssim_dict.values(), legends, colors):
+        ax[0].scatter(fluences, mse, s=5, label=l, c=c)
+        ax[1].scatter(fluences, 1 - ssim, s=5, label=l, c=c)
         
     for a in ax: a.grid(), a.set_xlabel('fluence'), a.legend(), a.set_xscale('log'), a.set_yscale('log')
     ax[0].set_ylabel('mse')
@@ -146,16 +146,22 @@ def plot_metrics_params_flu(fluences, mse_dict, ssim_dict, param, param_keys, id
     if idx_param is None: idx_param = np.arange(0, len(param_keys))
 
     f, ax = plt.subplots(2, 2, figsize=(8, 6))
-    colormap = plt.cm.brg
+    colormap = plt.cm.viridis
     colors = np.array([colormap(i) for i in np.linspace(1, 0, idx_param.shape[0])])
+    mark_size = 4
 
     for i, (mse_array, ssim_array) in enumerate(zip(mse_dict.values(), ssim_dict.values())):
         for s, mse, ssim, clr in zip(
             param_keys[idx_param], mse_array[idx_param],
             ssim_array[idx_param], colors
         ):
-            ax[0, i].loglog(fluences, mse, label=f'{s} {unit}', c=clr, linewidth=.5)
-            ax[1, i].loglog(fluences, 1 - ssim, c = clr, linewidth=.5)
+            if s == 1 and (param == 'steps' or param == 'band_lim'):
+                ax[0, i].loglog(fluences, mse, label=f'{s} {unit}'[:-1], c=clr, linewidth=.5, marker='o', markersize=mark_size)
+            elif param == 'grad':
+                ax[0, i].loglog(fluences, mse, label=f'{s}'[:-3]+f'] {unit}', c=clr, linewidth=.5, marker='o', markersize=mark_size)
+            else:
+                ax[0, i].loglog(fluences, mse, label=f'{s} {unit}', c=clr, linewidth=.5, marker='o', markersize=mark_size)
+            ax[1, i].loglog(fluences, 1 - ssim, c = clr, linewidth=.5, marker='o', markersize=mark_size)
 
     ax[0, 0].set_title('MSE reconstruction')
     ax[0, 1].set_title('MSE - PNLL reconstruction')
