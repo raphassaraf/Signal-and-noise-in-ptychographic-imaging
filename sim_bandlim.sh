@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -p gpu-week 
 #SBATCH --gres=gpu:1
-#SBATCH --array=10-10
-#SBATCH --output=logs/%x_%A_%a.out  # Output log file (%x: job name, %A: job ID, %a: array task ID)
-#SBATCH --error=logs/%x_%A_%a.err   # Error log file
+#SBATCH --array=1-10
+#SBATCH --output=logs/%x_%A_%a.out
+#SBATCH --error=logs/%x_%A_%a.err
 
 module load anaconda/2023-06-19
 source /opt/psi/TOMCAT/anaconda/2023-06-19/conda/etc/profile.d/conda.sh

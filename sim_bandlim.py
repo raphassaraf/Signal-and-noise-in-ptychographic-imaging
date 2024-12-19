@@ -1,7 +1,5 @@
 import argparse
-import itertools
 import numpy as np
-import torch as t
 
 from tools.rec_scripts import reconstruct_flu
 from tools.utils import *
@@ -31,7 +29,6 @@ def main():
 
     n_modes = args.n_modes
     n_flu = args.n_fluences
-    multiprobe = 'band_lim'
     flu_i, flu_f = -1, 6
     fluences = np.logspace(flu_i, flu_f, n_flu)
     
@@ -49,9 +46,9 @@ def main():
         multiprobe='band_lim',
         n_probes=n_modes
     )
-    save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}.pkl')
+    save_output(rec_dict, f'outputs/bandlim/rec_bandlim_{n_modes}.pkl')
         
-    ### MSE --> NLL ###
+    ### MSE --> PNLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
         fluences,
         'MSE',
@@ -60,7 +57,7 @@ def main():
         n_probes=n_modes
     )
             
-    save_output(rec_dict, f'outputs_new/bandlim/rec_bandlim_{n_modes}.pkl')
+    save_output(rec_dict, f'outputs/bandlim/rec_bandlim_{n_modes}.pkl')
 
 
 if __name__ == '__main__':

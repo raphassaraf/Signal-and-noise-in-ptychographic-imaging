@@ -1,7 +1,5 @@
 import argparse
-import itertools
 import numpy as np
-import torch as t
 
 from tools.rec_scripts import reconstruct_flu
 from tools.utils import *
@@ -13,7 +11,7 @@ def main():
         prog='sim_grad_1direction',
         description=(
             'Run a reconstruction sweep over the following multiprobe system: '
-            '[w_1*P, w_2*Px, w_3*Py]. Px and Py are the x and y directional '
+            '[w_1*P, w_2*Py, w_3*Px]. Py and Px are the x and y directional '
             'derivatives of P, and the weights w_i vary from [100, 0, 0] to '
             '[50, 50, 0] by decreasing w_1 by 10, increasing w_2 by 10 and keeping '
             'w_3 at 0 at each iteration. For each weight configuration, sweep over '
@@ -40,7 +38,6 @@ def main():
     weights = np.array([principal_mode_weight, secondary_mode_weight, 0])
     pkl_suf = np.array2string(weights, separator=',').replace(' ', '').replace('.', '')
     print(f'Weights: {weights}')
-
     n_flu = args.n_fluences
     flu_i, flu_f = -1, 6
     fluences = np.logspace(flu_i, flu_f, n_flu)
@@ -59,9 +56,9 @@ def main():
         multiprobe='grad',
         grad_weights=weights
     )
-    save_output(rec_dict, f'outputs_new/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
         
-    ### MSE --> NLL ###
+    ### MSE --> PNLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
         fluences,
         'MSE',
@@ -70,7 +67,7 @@ def main():
         grad_weights=weights
     )
             
-    save_output(rec_dict, f'outputs_new/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
+    save_output(rec_dict, f'outputs/grad_1direction/rec_grad_1direction_{pkl_suf}.pkl')
 
 
 if __name__ == '__main__':

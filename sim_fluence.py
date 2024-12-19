@@ -1,7 +1,5 @@
 import argparse
-import itertools
 import numpy as np
-import torch as t
 
 from tools.rec_scripts import reconstruct_flu
 from tools.utils import *
@@ -38,16 +36,16 @@ def main():
         fluences,
         'MSE',
     )
-    save_output(rec_dict, f'outputs_new/rec_fluence.pkl')
+    save_output(rec_dict, f'outputs/rec_fluence.pkl')
         
-    # ### MSE --> NLL ###
+    ### MSE --> PNLL ###
     rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
         fluences,
         'MSE',
         'PoissonNLL',
     )
             
-    save_output(rec_dict, f'outputs_new/rec_fluence.pkl')
+    save_output(rec_dict, f'outputs/rec_fluence.pkl')
 
 
 if __name__ == '__main__':

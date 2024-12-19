@@ -1,7 +1,5 @@
 import argparse
-import itertools
 import numpy as np
-import torch as t
 
 from tools.rec_scripts import reconstruct_flu
 from tools.utils import *
@@ -13,7 +11,7 @@ def main():
         prog='steps_bandlim_reconstruction',
         description=(
             'Run a reconstruction sweep over scanning step size going from 1 to 30.'
-            'Use a 5 pixelwide band-limited random probe.'
+            'Use a 20 pixelwide band-limited random probe.'
             'For each step size, reconstructions are performed over different fluences.'
         )
     )
@@ -33,7 +31,6 @@ def main():
 
     steps_size = args.steps_size
     print(f'Steps size: {steps_size}')
-
     n_flu = args.n_fluences
     flu_i, flu_f = -1, 6
     fluences = np.logspace(flu_i, flu_f, n_flu)
@@ -45,31 +42,28 @@ def main():
         'loss_mse_nll': None
     }
     
-    # Sweep over band-limited random probe size
-    for r_ratio in [5]:
-        ### MSE ###
-        rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
-            fluences,
-            'MSE',
-            probe_r_ratio=r_ratio,
-            steps_size=steps_size,
-            multiprobe='band_lim',
-            n_probes=1
-        )
-        save_output(rec_dict, f'outputs_new/steps_bandlim{r_ratio}/rec_steps_bandlim{r_ratio}_{steps_size}.pkl')
+
+    ### MSE ###
+    rec_dict['object_mse'], rec_dict['loss_mse'] = reconstruct_flu(
+        fluences,
+        'MSE',
+        steps_size=steps_size,
+        multiprobe='band_lim',
+        n_probes=1
+    )
+    save_output(rec_dict, f'outputs/steps_bandlim5/rec_steps_bandlim5_{steps_size}.pkl')
             
-        ### MSE --> NLL ###
-        rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
-            fluences,
-            'MSE',
-            'PoissonNLL',
-            probe_r_ratio=r_ratio,
-            steps_size=steps_size,
-            multiprobe='band_lim',
-            n_probes=1
-        )
+    ### MSE --> PNLL ###
+    rec_dict['object_mse_nll'], rec_dict['loss_mse_nll'] = reconstruct_flu(
+        fluences,
+        'MSE',
+        'PoissonNLL',
+        steps_size=steps_size,
+        multiprobe='band_lim',
+        n_probes=1
+    )
                 
-        save_output(rec_dict, f'outputs_new/steps_bandlim{r_ratio}/rec_steps_bandlim{r_ratio}_{steps_size}.pkl')
+    save_output(rec_dict, f'outputs/steps_bandlim5/rec_steps_bandlim5_{steps_size}.pkl')
 
 
 if __name__ == '__main__':
