@@ -4,16 +4,20 @@ import torch.nn as nn
 
 from PIL import Image
 from skimage.draw import disk
-from torch.optim import Adam, lr_scheduler, LBFGS
+from torch.optim import LBFGS
 from torchvision import transforms
 
 from cdtools.tools import propagators, interactions, losses
 
 
 def periodic_padding(img):
-    '''
-    Add periodic padding around to the image.
-    '''
+    '''Add periodic padding to the image.
+
+    Args:
+        img: 2-dimensional tensor
+    
+    Returns:
+        The padded image'''
     
     pad = nn.CircularPad2d(img.shape[0])
     
@@ -21,9 +25,17 @@ def periodic_padding(img):
 
 
 def simulate_object(path, resize=None, bc=None):
-    '''
-    Simulate an object complex-valued wavefront from an image.
-    '''
+    '''Simulate an object complex-valued wavefront from an image. This is done 
+    by taking the first and second color components of the image to respectively use them as
+    the real and imaginary part of the object.
+
+    Args:
+        path: string, the path to the image file
+        resize: int, size of the square-side to reshape the image to
+        bc: border conditions - takes only 'periodic' for now
+    
+    Returns:
+        Thec complex valued object'''
     
     sim_obj = transforms.functional.pil_to_tensor(Image.open(path, mode='r'))
     
@@ -38,9 +50,13 @@ def simulate_object(path, resize=None, bc=None):
 
 
 def get_obj_guess(size):
-    '''
-    Initialize the initial object guess with all pixels equal to 1+1j.
-    '''
+    '''Initialize the initial object guess with all pixels equal to 1+1j.
+
+    Args:
+        size: int, the size of the square side
+    
+    Returns:
+        The initial object guess'''
     
     obj_guess = (t.ones((size, size)) + 1j*t.zeros((size, size)))
 
@@ -51,11 +67,11 @@ def simulate_probe(m, r_ratio, r_inner=0, propagate=False, distance=20, band_lim
     '''Simulates a probe in a square image, based on focused/defocused Fourier Transform.
 
     Args:
-        m: size of the image's side
-        r_ratio: ratio between the size of a side and the radius of the donut
-        r_inner: radius of the inner circle
-        propagate: bool for including propagation
-        distance: distance of propagation
+        m: int, size of the image's side
+        r_ratio: int, ratio between the size of a side and the radius of the outer ring
+        r_inner: int, radius of the inner ring
+        propagate: bool, if True, inclde propagation
+        distance: int, distance of propagation
         band_lim_rand: bool for simulating a band-limited random probe
 
     Returns:
@@ -88,9 +104,18 @@ def simulate_probe(m, r_ratio, r_inner=0, propagate=False, distance=20, band_lim
 
 def simulate_multiprobe_grad(m, r_ratio, r_inner=0, propagate=False,
                              distance=None, weights=[100, 0, 0]):
-    '''
-    Simulate multiprobe tensor from the weighted directional derivatives of an initial probe.
-    '''
+    '''Simulate multiprobe tensor from the weighted directional derivatives of an initial probe.
+
+    Args:
+        m: int, size of the image's side
+        r_ratio: int, ratio between the size of a side (m) and the radius of the outer ring
+        r_inner: int, radius of the inner ring
+        propagate: bool, if True, include propagation
+        distance: int, distance of propagation
+        weights: shape (3,) array containing the weights to attribute to each directional derivative mode
+    
+    Returns:
+        A tensor of shape (3, m, m) containing each simulated mode.'''
 
     probe = simulate_probe(m, r_ratio, r_inner, propagate, distance)
     grad_x, grad_y = t.gradient(probe)
@@ -110,7 +135,16 @@ def simulate_multiprobe_grad(m, r_ratio, r_inner=0, propagate=False,
 def simulate_multiprobe_defocus(m, r_ratio, r_inner=0, propagate=False, propa_distances=None):
     '''
     Simulate multiprobe tensor from the different focal distances of the same probe.
-    '''
+
+    Args:
+        m: int, size of the image's side
+        r_ratio: int, ratio between the size of a side (m) and the radius of the outer ring
+        r_inner: int, radius of the inner ring
+        propagate: bool, if True, include propagation
+        propa_distances: array containing the propagation distance for each mode
+
+    Returns:  
+        A tensor of shape (len(propa_distances), m, m) containing each simulated mode.'''
     
     multiprobes = [
         simulate_probe(m, r_ratio, r_inner, propagate, d)
@@ -124,13 +158,13 @@ def simulate_multiprobe_band_limited_random(m, r_ratio, r_inner=0, n_probes=10):
     '''Simulates a multiprobe tensor with band-limited random probes.
     
     Args:
-        m: size of the image's side
-        r_ratio: ratio between the size of a side and the radius of the donut
-        r_inner: radius of the inner circle
-        n_probes: number of simulated modes
+        m: int, size of the image's side
+        r_ratio: int, ratio between the size of a side (m) and the radius of the outer ring
+        r_inner: int, radius of the inner ring
+        n_probes: int, number of simulated modes
     
     Returns:
-        A tensor of shape (n_probes, m, m) containing each simulated probe.'''
+        A tensor of shape (n_probes, m, m) containing each simulated mode.'''
     
     multiprobes = [
         simulate_probe(m, r_ratio, r_inner, band_lim_rand=True)
@@ -140,10 +174,18 @@ def simulate_multiprobe_band_limited_random(m, r_ratio, r_inner=0, n_probes=10):
     return t.stack(multiprobes)   
 
 
-def set_scanning_grid(coord, n_steps, steps_size, add_noise=True, noise_ratio=8):
-    '''
-    Initialize a scanning grid with gaussian noise.
-    '''
+def set_scanning_grid(coord, n_steps, steps_size, add_noise=True, noise_factor=0.1):
+    '''Initialize the scanning positions as a raster-grid.
+
+    Args:
+        coord: (2,) shaped array or tuple, the coordinates of the first upper left corner scanning point
+        n_steps: int, the number of scanning positions on each axis
+        steps_size: int, the distance between each step, measured in pixels
+        add_noise: bool, if True, adds gaussian noise to the positions (mean = 0, std = steps_size * noise_factor)
+        noise_factor: double, the factor multiplying the steps size to get the standard deviation of the noise 
+
+    Returns:
+        A (n_steps, 2) tensor containing the scanning positions.'''
 
     # Create a perfect scan grid.
     x = t.arange(coord[0], coord[0] + n_steps * steps_size, steps_size)
@@ -153,9 +195,9 @@ def set_scanning_grid(coord, n_steps, steps_size, add_noise=True, noise_ratio=8)
     # Generate Gaussian noise.
     if add_noise:
         noise = t.normal(
-            mean=0,
-            std=size / noise_ratio,
-            size=(steps**2, 2)
+            mean = 0,
+            std = steps_size * noise_factor,
+            size = (n_steps**2, 2)
         ).round().int()
     else: noise = 0
     
@@ -177,9 +219,15 @@ def get_intensity(wave):
 
 
 def get_diffractions_direct(probe, obj, translations):
-    '''
-    Calculate diffraction pattern's intensity using ptycho_2D_round.
-    '''
+    '''Calculate diffraction pattern's intensity using ptycho_2D_round.
+    
+    Args:
+        probe: (m, m) shaped complex type tensor of the probe
+        obj: (m, m) shaped complex type tensor of the object
+        translations: (n, 2) shaped tensor of the n scanning positions
+        
+    Returns:
+        (n, m, m) shaped tensor containing the n diffraction patterns' intensities'''
 
     if probe.dim() == 3: # multi-probe intensity
         multiprobe_intensities = t.stack([
@@ -197,10 +245,19 @@ def get_diffractions_direct(probe, obj, translations):
 
 
 def get_diffractions_fluence(probe, obj, translations, fluence, noise=None):
-    '''
-    Calculate the diffraction patterns for a given probe, object,
-    translations grid and fluence.
-    '''
+    '''Calculate diffraction pattern's intensity for a given fluence.
+    
+    Args:
+        probe: (m, m) shaped complex type tensor of the probe
+        obj: (m, m) shaped complex type tensor of the object
+        translations: (n, 2) shaped tensor of the n scanning positions
+        fluence: int, the photon fluence incident on the object
+        noise: {'poisson'} - adds Poisson noise to the diffractions
+        
+    Returns:
+        diff_patterns: (n, m, m) shaped tensor containing the n diffraction patterns' intensities
+            and scaled with the fluence
+        output_probe: the initial probe scaled with the fluence'''
 
     diff_patterns = get_diffractions_direct(probe, obj, translations)
 
@@ -219,25 +276,28 @@ def get_diffractions_fluence(probe, obj, translations, fluence, noise=None):
         diff_patterns = t.poisson(diff_patterns)
     
     return diff_patterns, output_probe
-
-def mse_amplitude_loss(sim_intensity, measured_intensity):
-    '''
-    Corrected MSE loss
-    '''
-    eps = 1e-14 # term to prevent derivative from blowing up during optimization
-    loss = t.sum(
-        (t.sqrt(sim_intensity+eps) - t.sqrt(measured_intensity+eps))**2
-        ) / t.numel(sim_intensity)
-    
-    return loss
     
     
 def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
-             lr=1, patience=8, tolerance=1e-4, loss_f='PoissonNLL', show=False):
-    '''
-    Reconstruct the object using autodiff maximum likelihood.
-    loss_f: {'PoissonNLL', 'MSE'}
-    '''
+             lr=1, patience=8, tolerance=1e-4, loss_f='PoissonNLL'):
+    '''Reconstruct the object with known probe, through maximum likelihood estimation.
+    The reconstruction uses the L-BFGS optimizer.
+
+    Args:
+        diffractions: (n, m, m) tensor of the diffraction patterns' intensities
+        sim_probe: (m, m) tensor of the simulated probe
+        obj_guess: (m, m) tensor of the initial object guess
+        translations: (n, 2) tensor of the scanning positions
+        epochs: int, the number of optimization iterations
+        lr: double, learning rate
+        patience: int, patience parameter for early stopping
+        tolerace: double, tolerance parameter for early stopping
+        loss_f: the loss function to use - 'MSE' for mean square error amplitude loss
+            'PoissonNLL' for Poisson negative log-likelihood
+    
+    Returns:
+        the reconstructed object
+        the loss list logging the loss values at each optimization iteration'''
 
     if loss_f == 'PoissonNLL': loss_fct = nn.PoissonNLLLoss(log_input=False)
     elif loss_f == 'MSE': loss_fct = losses.amplitude_mse
@@ -283,62 +343,3 @@ def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
             break
 
     return obj_guess.detach().clone().to('cpu'), loss_list
-
-
-
-# def AD_model_LBFGS(diffractions, sim_probe, obj_guess, translations, epochs,
-#              lr=0.1, batch_size=50, min_lr=1e-9, patience=5, tolerance=1e-8, loss_f='PoissonNLL', show=False):
-#     '''
-#     Reconstruct the object using autodiff maximum likelihood.
-#     loss_f: {'PoissonNLL', 'MSE'}
-#     '''
-    
-#     if loss_f == 'PoissonNLL': loss_fct = nn.PoissonNLLLoss(log_input=False)
-#     elif loss_f == 'MSE': loss_fct = losses.amplitude_mse
-        
-#     obj_guess.requires_grad = True
-#     optimizer = Adam([obj_guess], lr=lr)
-#     scheduler = lr_scheduler.ReduceLROnPlateau(
-#         optimizer, mode='min', factor=0.1, patience=8, threshold=1e-4, eps=1e-10
-#     )
-    
-#     loss_list = []
-#     for e in range(epochs):
-#         idx = t.randperm(diffractions.size(0))
-        
-#         l_batch = []
-#         for b in range(translations.shape[0] // batch_size):
-            
-#             idx_batch = idx[b*batch_size:(b+1)*batch_size]
-            
-#             predicted_patterns = t.clamp(get_diffractions_direct(
-#                 probe=sim_probe,
-#                 obj=periodic_padding(obj_guess),
-#                 translations=translations[idx_batch],
-#             ), 1e-10)
-#             optimizer.zero_grad()
-            
-#             l = loss_fct(predicted_patterns, diffractions[idx_batch])
-#             l_batch.append(l.item())
-            
-#             l.backward()
-#             optimizer.step()
-        
-#         loss = sum(l_batch)
-#         loss_list.append(loss)
-#         scheduler.step(loss)
-        
-#         current_lr = scheduler.get_last_lr()[0]
-        
-#         if current_lr < lr:
-#             batch_size = translations.shape[0]
-            
-#         if current_lr < min_lr:
-#             print("Stopping early due to low learning rate")
-#             break
-#         if e%10 == 0 and show == True:
-#             plt.imshow(t.abs(obj_guess).detach().to('cpu'))
-#             plt.show(block=False)
-#             plt.pause(0.001)
-#         print(f'Epoch {e}: loss = {loss} | lr = {current_lr}')
-#     return obj_guess.detach().clone().to('cpu'), loss_list

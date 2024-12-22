@@ -16,11 +16,12 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
         fluences: array of fluences to sweep on
         loss_fct_1: the first (or only) loss function to use for the reconstructions
         loss_fct_2: the second loss function to use for the reconstructions
-        steps_size: number of pixels between each scanning position
+        probe_r_ratio: int, ratio between the size of a side and the radius of the outer ring for the de-focused ring probe
+        steps_size: int, number of pixels between each scanning position
         multiprobe: the multiprobe generation method {'defocus', 'grad', 'band_lim'}
-        propa_distances: the propagation distances to use in case of 'defocus' multiprobe simulation
-        grad_weights: the weights for each mode in case of 'grad' multiprobe simulation
-        n_probes: number of modes to simulate in case of 'band_lim' multiprobe simulation
+        propa_distances: int, the propagation distances to use in case of 'defocus' multiprobe simulation
+        grad_weights: (3,) shaped array, the weights for each mode in case of 'grad' multiprobe simulation
+        n_probes: int, number of modes to simulate in case of 'band_lim' multiprobe simulation
         
     Returns:
         reconstructed_obj_dict: dictionnary containing the reconstructed object for each fluence
