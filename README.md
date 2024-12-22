@@ -1,6 +1,7 @@
 # Signal and noise in ptychographic imaging
 ### Stochastic Simulations - Assignment 1
-![Image](images/Mandelbrot%20zoom.png)
+![initial_object_probe](https://github.com/user-attachments/assets/ea938258-faeb-4b78-8798-015eb7ac5fbd)
+
 
 ### Contributors
 * Raphael Assaraf - raphael.assaraf@epfl.ch
