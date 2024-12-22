@@ -1,18 +1,8 @@
 # Signal and noise in ptychographic imaging
 ![initial_object_probe](https://github.com/user-attachments/assets/ea938258-faeb-4b78-8798-015eb7ac5fbd)
 
-
-### Contributors
+## Contributors
 * Raphael Assaraf - raphael.assaraf@epfl.ch
-
-## Table of Contents
-
-* [Introduction](#introduction)
-* [Project Structure](#project-structure)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Licensing](#license)
-* [Acknowledgements](#acknowledgements)
 
 ## Introduction
 This project contains all the code used to generate the results and plots of the _Signal and noise in ptychographic imaging_ white paper.
@@ -37,7 +27,6 @@ Paul Scherrer Institute.
     - `./utils.py` - contains the main area estimation class, `Mandelbrot`.
 * `main.py`      - 
 * `requirements.txt` -
-
 
 ## Installation
 
