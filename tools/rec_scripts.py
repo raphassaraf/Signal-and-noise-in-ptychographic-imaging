@@ -27,9 +27,11 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
         reconstructed_obj_dict: dictionnary containing the reconstructed object for each fluence
         reconstructed_loss_dict: dictionnary containing the loss history for each fluence'''
 
+    # Simulate object
     print(f'Tensors initialization on device {DEVICE}')
     sim_obj = simulate_object(PATH, resize=OBJ_SIZE, bc='periodic').to(DEVICE)
 
+    # Simulate probe
     print(f'Multiprobe = {multiprobe}')
     if multiprobe == 'defocus':
         sim_probe = simulate_multiprobe_defocus(
@@ -52,6 +54,7 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
         )
     sim_probe = sim_probe.to(DEVICE)
 
+    # Get translations
     translations = set_scanning_grid(
         coord = (OBJ_SIZE, OBJ_SIZE),
         n_steps = np.ceil(OBJ_SIZE/steps_size),
@@ -59,8 +62,7 @@ def reconstruct_flu(fluences, loss_fct_1, loss_fct_2=None, probe_r_ratio=5, step
         add_noise = False
     ).to(DEVICE)
 
-    # Dictionnary containing the diffraction patterns and rescaled probe for each
-    # fluence.
+    # Dictionnary containing the diffraction patterns and rescaled probe for each fluence
     true_diff_probe_dict = {
         f: get_diffractions_fluence(
             sim_probe, sim_obj, translations, fluence=f, noise='poisson'
