@@ -25,8 +25,8 @@ Paul Scherrer Institute.
     - `./tools_plt.py` - Functions for plotting results
     - `./tools_rec.py` - Ptychography and image processing related functions
     - `./utils.py` - Utility functions 
-* `analysis_final.ipynb` - Contains the code for plotting the results
-* `requirements.txt` - 
+* `analysis.ipynb` - The notebook for plotting the results
+* `requirements.txt` - All required dependencies
 
 ## Installation
 
@@ -43,54 +43,17 @@ cd ./Signal-and-noise-in-ptychographic-imaging/
 pip install -r requirements.txt
 ```
 
-## Usage of CLA's
-
-The simulations can be run and saved via the terminal.
-
-Structure of command line argument:
+### Usage
+The simulations should be run from terminal as:
 ```bash
-python3 main.py method [--help] [-n N_samples] [-i ITERATIONS] [-s SIMULATIONS] [--symmetry] [--stratified] [--save]
-```
-`method` is the only mandatory argument and must be one of the following: [random, hypercube, orthogonal]
-
-`-n` is used to pass the number of samples, must have an integer square root (default is 2500).
-
-`-i` is the precision used when checking for convergence (default is 500 iterations).
-
-`-s` number of simulations to run (default is 10).
-
-`--symmetry` to exploit symmetry in the x-axis when estimating the area.
-
-`--stratified` to enable stratified sampling (to reduce variance)
-
-`--save` saves results in a csv-file in `./data/`.
-
-
-
-### Example usage
-Running and saving 10 simulations with stratified random sampling with 2500 samples and iteration limit of 500
-```bash
-python3 main.py random -n 2500 -i 500 -s 10 --save
-```
-After executing the simulations, main.py will print the mean area and the corresponding sample variance.
-```
-Area found using random sampling: 1.4918592
-Variance: 0.0018081583103999972
+sbatch <simulation_code.sh>
 ```
 
-Running and saving 50 simulations of stratified hypercube sampling with 4096 samples and iteration limit of 1000:
-```bash
-python3 main.py hypercube -n 4096 -i 1000 -s 10 --save
-```
+The results are then saved in the simulation's corresponding folder under the *outputs/* directory.
 
-For a summary on the usage of main.py and its commandline arguments, run:
-```bash
-python3 main.py -h
-```
-## Licensing
-This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.md](LICENSE.md) file for details.
+Once the simulations have been run, the results can be plotted with the *analysis.ipynb* file.
+
 
 ## Acknowledgements
 
-Code for the Mandlebrot visuals and Julia set images were adapted from [this report](https://medium.com/swlh/visualizing-the-mandelbrot-set-using-python-50-lines-f6aa5a05cf0f).
-This code was accessed via its public repository on github: [Mandelbrot-Set](https://github.com/blakesanie/Mandelbrot-Set)
+Parts of the project were inspired by and use the CDTools library from Abe Levitan: https://cdtools-developers.github.io/cdtools-docs/examples.html
