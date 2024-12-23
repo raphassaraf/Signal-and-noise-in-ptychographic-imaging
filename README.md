@@ -43,7 +43,7 @@ cd ./Signal-and-noise-in-ptychographic-imaging/
 pip install -r requirements.txt
 ```
 
-### Usage
+## Usage
 The simulations should be run from terminal as:
 ```bash
 sbatch <simulation_code.sh>
@@ -56,4 +56,4 @@ Once the simulations have been run, the results can be plotted with the *analysi
 
 ## Acknowledgements
 
-Parts of the project were inspired by and use the CDTools library from Abe Levitan: https://cdtools-developers.github.io/cdtools-docs/examples.html
+Parts of the project were inspired by and use the [CDTools]([url](https://cdtools-developers.github.io/cdtools-docs/examples.html)) library from Abe Levitan.
