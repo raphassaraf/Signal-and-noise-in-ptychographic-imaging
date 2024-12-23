@@ -48,7 +48,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-The simulations should be run from terminal as:
+The simulations should be run using Slurm, from the terminal as:
 ```bash
 sbatch {simulation_code.sh}
 ```
