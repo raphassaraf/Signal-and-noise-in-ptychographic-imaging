@@ -60,4 +60,4 @@ Once the simulations have been run, the results can be plotted with the *analysi
 
 ## Acknowledgements
 
-Parts of the project were inspired by and/or use the [CDTools]([url](https://cdtools-developers.github.io/cdtools-docs/examples.html)) library from Abraham Levitan.
+Parts of the project were inspired by and/or use the [CDTools](https://cdtools-developers.github.io/cdtools-docs/examples.html) library from Abraham Levitan.
