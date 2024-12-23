@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ## Usage
 The simulations should be run from terminal as:
 ```bash
-sbatch <simulation_code.sh>
+sbatch {simulation_code.sh}
 ```
 
 The results are then saved in the simulation's corresponding folder under the *outputs/* directory.
