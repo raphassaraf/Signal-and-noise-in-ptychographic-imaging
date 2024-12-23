@@ -24,9 +24,9 @@ Paul Scherrer Institute.
     - `./rec_scripts.py` - Reconstruction function called in the .sh simulation scripts
     - `./tools_plt.py` - Functions for plotting results
     - `./tools_rec.py` - Ptychography and image processing related functions
-    - `./utils.py` - contains the main area estimation class, `Mandelbrot`.
-* `main.py`      - 
-* `requirements.txt` -
+    - `./utils.py` - Utility functions 
+* `analysis_final.ipynb` - Contains the code for plotting the results
+* `requirements.txt` - 
 
 ## Installation
 
