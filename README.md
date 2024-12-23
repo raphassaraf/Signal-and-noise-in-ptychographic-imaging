@@ -6,13 +6,13 @@
 
 ## Introduction
 This project contains all the code used to generate the results and plots of the _Signal and noise in ptychographic imaging_ white paper.
-The work was done in the scope of a semester project at the Computational X-ray Imaging Group at EPFL, in collaboration with the 
+The work was done in the scope of a semester project at the Computational X-ray Imaging Group at the Swiss Federal Institute of Technology of Lausanne (EPFL), in collaboration with the 
 Paul Scherrer Institute.
 
 ## Project Structure
 
 * `/figures/*`     -  All saved figures as .png files
-* `/logs/*`     -  An empty folder where all logs file are sent during simulations
+* `/logs/*`     -  Folder where all logs file are sent during simulations
 * `/outputs/*`     - Contains all the outputs of the simulations as .pkl files
     - `./bandlim/*` - Outputs of the simulations with multi-probes based on band-limited random modes 
     - `./grad_1direction/*` - Outputs of the simulations with multi-probes based on directional derivatives 
@@ -26,6 +26,10 @@ Paul Scherrer Institute.
     - `./tools_rec.py` - Ptychography and image processing related functions
     - `./utils.py` - Utility functions 
 * `analysis.ipynb` - The notebook for plotting the results
+* `sim_bandlim.sh` - Reconstructions with increasing amount of band-limited random modes, over varying fluences
+* `sim_fluence.sh` - Reconstructions with varying fluences using de-focused ring probe
+* `sim_grad_1direction.sh` - Reconstructions with varying modes intensities for de-focused ring + y-directional derivative modes, over varying fluences
+* `sim_steps_bandlim.sh` - Reconstructions with varying step sizes using band-limited random probe, over varying fluences
 * `requirements.txt` - All required dependencies
 
 ## Installation
@@ -56,4 +60,4 @@ Once the simulations have been run, the results can be plotted with the *analysi
 
 ## Acknowledgements
 
-Parts of the project were inspired by and use the [CDTools]([url](https://cdtools-developers.github.io/cdtools-docs/examples.html)) library from Abe Levitan.
+Parts of the project were inspired by and/or use the [CDTools]([url](https://cdtools-developers.github.io/cdtools-docs/examples.html)) library from Abe Levitan.
