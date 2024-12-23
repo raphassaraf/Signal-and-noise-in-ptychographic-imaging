@@ -1,6 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+SMALL_SIZE = 8
+MEDIUM_SIZE = 10
+BIGGER_SIZE = 12
+
+plt.rc('font', size=MEDIUM_SIZE)         
+plt.rc('axes', titlesize=BIGGER_SIZE)    
+plt.rc('axes', labelsize=BIGGER_SIZE)    
+plt.rc('xtick', labelsize=SMALL_SIZE)    
+plt.rc('ytick', labelsize=SMALL_SIZE)    
+plt.rc('legend', fontsize=MEDIUM_SIZE)  
+plt.rc('figure', titlesize=BIGGER_SIZE) 
+plt.rc('figure', dpi=300)
+
 
 def plot_metrics_flu(fluences, mse_dict, ssim_dict):
     '''
