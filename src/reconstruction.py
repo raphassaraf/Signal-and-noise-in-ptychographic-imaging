@@ -1,8 +1,8 @@
 import numpy as np
 import torch as t
 
-from tools.constants import PATH, OBJ_SIZE
-from tools.tools_rec import *
+from src.constants import PATH, OBJ_SIZE
+from src.ptychography import *
 
 
 DEVICE = t.device("cuda" if t.cuda.is_available() else "cpu")

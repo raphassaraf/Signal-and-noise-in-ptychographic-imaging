@@ -1,8 +1,8 @@
 import argparse
 import numpy as np
 
-from tools.rec_scripts import reconstruct_flu
-from tools.utils import *
+from src.reconstruction import reconstruct_flu
+from src.utils import *
 
 
 def main():
