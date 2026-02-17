@@ -28,8 +28,7 @@ Multiple experimental scenarios are tested:
 
 The simulations reveal clear regime transitions in reconstruction quality as a function of photon fluence, scan step size, and probe coherence. In particular:
 
-- The Poisson negative log-likelihood (PNLL) loss consistently outperforms the MSE-amplitude approximation in low-fluence regimes.
-- PNLL-based reconstruction error exhibits power-law decay regions across fluence sweeps.
+- The Poisson negative log-likelihood (PNLL) loss consistently outperforms the MSE-amplitude approximation in low-fluence regimes. PNLL-based reconstruction error exhibits power-law decay regions across fluence sweeps.
 ![metrics_flu](figures/metrics_flu.png)
 
 - Sub-Nyquist scanning introduces a non-trivial trade-off between redundancy and photon statistics.
@@ -48,12 +47,6 @@ Results are quantified using mean square error (MSE) and structural similarity (
 ├── requirements.txt                # Python dependencies
 ├── run_experiment.py               # Entry point for running simulations
 ├── figures/                        # Generated plots and visualizations
-├── logs/                           # Simulation logs
-├── outputs/                        # Simulation results (.pkl files)
-│   ├── bandlim/                   # Band-limited random probe experiments
-│   ├── grad_1direction/           # Directional derivative probe experiments
-│   ├── steps_bandlim5/            # Step size variation experiments
-│   └── rec_fluence.pkl            # Fluence sweep results
 ├── src/                            # Core simulation and utility modules
 │   ├── constants.py               # Global configuration and parameters
 │   ├── metrics.py                 # Error and quality metrics
@@ -62,10 +55,10 @@ Results are quantified using mean square error (MSE) and structural similarity (
 │   ├── utils.py                   # Utility functions
 │   └── visualisation.py           # Plotting and visualization tools
 └── experiments/                    # Simulation scripts
-    ├── sim_bandlim.sh             # Band-limited probe variations
-    ├── sim_fluence.sh             # Fluence sweep experiment
-    ├── sim_grad_1direction.sh     # Directional derivative experiment
-    └── sim_steps_bandlim.sh       # Step size variation experiment
+    ├── sim_bandlim.py             # Band-limited probe variations
+    ├── sim_fluence.py             # Fluence sweep experiment
+    ├── sim_grad_1direction.py     # Directional derivative experiment
+    └── sim_steps_bandlim.py       # Step size variation experiment
 ```
 
 ## Quick Start
