@@ -87,22 +87,22 @@ Fluence sweep:
 python run_experiment.py fluence --n-fluences 10
 ```
 
-Band-limited modes sweep
+Band-limited modes sweep:
 ```bash
 python run_experiment.py bandlim --n-modes 5 --n-fluences 10
 ```
 
-Gradient mode (1 direction, principal-mode-weight --> integer between 0 and 9)
+Gradient mode (1 direction, `principal-mode-weight` --> integer between 0 and 9):
 ```bash
 python run_experiment.py grad-1direction --principal-mode-weight 5 --n-fluences 10
 ```
 
-Scanning step size sweep
+Scanning step size sweep:
 ```bash
 python run_experiment.py steps-bandlim --steps-size 8 --n-fluences 10
 ```
 
-Run all experiments with default parameters
+Run all experiments with default parameters:
 ```bash
 python run_experiment.py all
 ```
