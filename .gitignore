@@ -13,9 +13,6 @@ results/
 # Ignore Jupyter notebook checkpoints
 notebooks/.ipynb_checkpoints/
 
-# Ignore figures (if generated, not source)
-figures/
-
 # Ignore environment files
 .env
 
