@@ -30,7 +30,14 @@ The simulations reveal clear regime transitions in reconstruction quality as a f
 
 - The Poisson negative log-likelihood (PNLL) loss consistently outperforms the MSE-amplitude approximation in low-fluence regimes.
 - PNLL-based reconstruction error exhibits power-law decay regions across fluence sweeps.
+![metrics_flu](figures/metrics_flu.png)
+
+- Sub-Nyquist scanning introduces a non-trivial trade-off between redundancy and photon statistics.
+![metrics_steps_comparison](figures/metrics_steps_comparison.png)
+
 - Increasing probe decoherence (multi-mode mixtures) systematically degrades reconstruction accuracy.
+![metrics_bandlim](figures/metrics_bandlim.png)
+
 
 Results are quantified using mean square error (MSE) and structural similarity (SSIM) metrics, alongside amplitude and phase reconstructions.
 
