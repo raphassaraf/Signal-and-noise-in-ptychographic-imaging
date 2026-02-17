@@ -1,0 +1,33 @@
+# Ignore shell scripts (lab-specific, not portable)
+experiments/*.sh
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore log files and simulation outputs
+logs/
+outputs/
+results/
+
+# Ignore Jupyter notebook checkpoints
+notebooks/.ipynb_checkpoints/
+
+# Ignore figures (if generated, not source)
+figures/
+
+# Ignore environment files
+.env
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore legacy folder (if not relevant for recruiters)
+legacy/
+
+# Ignore any temporary files
+*.tmp
+*.bak
+
+# Ignore pickle files (simulation results)
+*.pkl
